@@ -1,0 +1,110 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        maven { url "https://repo.grails.org/grails/core" }
+    }
+    dependencies {
+        classpath "org.grails:grails-gradle-plugin:$grailsVersion"
+        classpath "org.grails.plugins:hibernate5:${gormVersion-".RELEASE"}"
+        classpath "com.bertramlabs.plugins:asset-pipeline-gradle:2.14.2"
+    }
+}
+
+version "0.9.100"
+group "olrmain"
+
+apply plugin:"eclipse"
+apply plugin:"idea"
+apply plugin:"war"
+apply plugin:"org.grails.grails-web"
+apply plugin:"asset-pipeline"
+apply plugin:"org.grails.grails-gsp"
+
+repositories {
+    mavenLocal()
+    maven { url "https://repo.grails.org/grails/core" }
+}
+
+dependencies {
+    compile "org.springframework.boot:spring-boot-starter-logging"
+    compile "org.springframework.boot:spring-boot-autoconfigure"
+    compile "org.grails:grails-core"
+    compile "org.springframework.boot:spring-boot-starter-actuator"
+    compile "org.springframework.boot:spring-boot-starter-tomcat"
+    compile "org.grails:grails-web-boot"
+    compile "org.grails:grails-logging"
+    compile "org.grails:grails-plugin-rest"
+    compile "org.grails:grails-plugin-databinding"
+    compile "org.grails:grails-plugin-i18n"
+    compile "org.grails:grails-plugin-services"
+    compile "org.grails:grails-plugin-url-mappings"
+    compile "org.grails:grails-plugin-interceptors"
+    compile "org.grails.plugins:cache"
+    compile "org.grails.plugins:async"
+    compile "org.grails.plugins:scaffolding"
+    compile "org.grails.plugins:events"
+    compile "org.grails.plugins:hibernate5"
+    //  added  security plugin added June 4, 2019
+    compile "org.grails.plugins:spring-security-core:3.2.3"
+    compile 'org.grails.plugins:spring-security-ui:4.0.0.M1'
+    // end of new plugins
+    compile "org.hibernate:hibernate-core:5.1.5.Final"
+    compile "org.grails.plugins:gsp"
+    console "org.grails:grails-console"
+    profile "org.grails.profiles:web"
+//  json validation jars
+    compile "org.leadpony.justify:justify:0.17.0"
+    compile "org.glassfish:jakarta.json:1.1.5"
+//  end of json validation jars
+    runtime "org.glassfish.web:el-impl:2.1.2-b03"
+//  postgres jdbc driver
+    runtime "org.postgresql:postgresql:42.2.5"
+//  H2 database driver
+    runtime "com.h2database:h2"
+    runtime "org.apache.tomcat:tomcat-jdbc"
+    runtime "com.bertramlabs.plugins:asset-pipeline-grails:2.14.2"
+    testCompile "org.grails:grails-gorm-testing-support"
+    testCompile "org.grails.plugins:geb"
+    testCompile "org.grails:grails-web-testing-support"
+    testRuntime "org.seleniumhq.selenium:selenium-htmlunit-driver:2.47.1"
+    testRuntime "net.sourceforge.htmlunit:htmlunit:2.18"
+//  needed for Heroku deployment - contains tomcat so be careful of Tomcat version!
+    compile 'com.github.jsimone:webapp-runner:8.5.11.3'
+}
+
+bootRun {
+    jvmArgs('-Dspring.output.ansi.enabled=always')
+    addResources = true
+}
+
+
+assets {
+    minifyJs = true
+    minifyCss = true
+}
+// added from blog articles grails 3 on heroku
+task wrapper(type: Wrapper) {
+    gradleVersion = gradleWrapperVersion
+}
+
+task stage() {
+    dependsOn clean, war
+}
+
+tasks.stage.doLast() {
+    delete fileTree(dir: "build/distributions")
+    delete fileTree(dir: "build/assetCompile")
+    delete fileTree(dir: "build/distributions")
+    delete fileTree(dir: "build/libs", exclude: "*.war")
+}
+
+war.mustRunAfter clean
+
+task copyToLib(type: Copy) {
+    into "$buildDir/server"
+    from(configurations.compile) {
+        include "webapp-runner*"
+    }
+}
+
+stage.dependsOn(copyToLib)

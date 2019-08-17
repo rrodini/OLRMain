@@ -1,0 +1,167 @@
+---
+grails:
+    profile: web
+    codegen:
+        defaultPackage: org.olr.nonadmin
+    spring:
+        transactionManagement:
+            proxies: false
+    gorm:
+        reactor:
+            # Whether to translate GORM events into Reactor events
+            # Disabled by default for performance reasons
+            events: false
+info:
+    app:
+        name: '@info.app.name@'
+        version: '@info.app.version@'
+        grailsVersion: '@info.app.grailsVersion@'
+spring:
+    main:
+        banner-mode: "off"
+    groovy:
+        template:
+            check-template-location: false
+
+# Spring Actuator Endpoints are Disabled by Default
+endpoints:
+    enabled: false
+    jmx:
+        enabled: true
+---
+grails:
+    mime:
+        disable:
+            accept:
+                header:
+                    userAgents:
+                        - Gecko
+                        - WebKit
+                        - Presto
+                        - Trident
+        types:
+            all: '*/*'
+            atom: application/atom+xml
+            css: text/css
+            csv: text/csv
+            form: application/x-www-form-urlencoded
+            html:
+              - text/html
+              - application/xhtml+xml
+            js: text/javascript
+            json:
+              - application/json
+              - text/json
+            multipartForm: multipart/form-data
+            pdf: application/pdf
+            rss: application/rss+xml
+            text: text/plain
+            hal:
+              - application/hal+json
+              - application/hal+xml
+            xml:
+              - text/xml
+              - application/xml
+    urlmapping:
+        cache:
+            maxsize: 1000
+    controllers:
+        defaultScope: singleton
+    converters:
+        encoding: UTF-8
+    views:
+        default:
+            codec: html
+        gsp:
+            encoding: UTF-8
+            htmlcodec: xml
+            codecs:
+                expression: html
+                scriptlets: html
+                taglib: none
+                staticparts: none
+    cors:
+        enabled: true
+    reload:
+        enabled: true
+endpoints:
+    jmx:
+        unique-names: true
+---
+hibernate:
+    cache:
+        queries: false
+        use_second_level_cache: false
+        use_query_cache: false
+# to get Game description update to work
+    jdbc:
+        batch_version_data: false
+#dataSource:
+#    pooled: true
+#    jmxExport: true
+#    driverClassName: org.h2.Driver
+#    username: sa
+#    password: ''
+
+environments:
+    development:
+        dataSource:
+# original uses in memeory H2 database
+#            dbCreate: create-drop
+#            url: jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+# use POSTGRESQL
+# logSql is a debug setting
+#            logSql: true
+            dbCreate: 'update'   # 'create', 'create-drop', 'update', 'validate'
+            url: "${DATABASE_URL}"                       # POSTGRES url - env name from Heroku
+            driverClassName: "org.postgresql.Driver"
+            dialect: org.hibernate.PostgreSQLDialect
+            username: ${DB_USERNAME}                     # POSTGRES db username (app id)
+            password: ${DB_PASSWORD}                     # POSTGRES db password
+# CORS url values below
+        url:
+            allowOrigin: ${URL_ALLOW_ORIGIN}             # Grails program
+            startGame: ${URL_START_GAME}                 # passes Game params
+            gameEmcee: ${URL_GAME_EMCEE}                 # returns Game GUI
+        grails:
+            plugin:
+                fields:
+                    disableLookupCache: true
+    test:
+        dataSource:
+            dbCreate: update
+            url: jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+    production:
+        dataSource:
+    # use POSTGRESQL
+    # logSql is a debug setting
+    #            logSql: true
+            dbCreate: 'create'   # 'create', 'create-drop', 'update', 'validate'
+            url: "${DATABASE_URL}"                       # POSTGRES url - env name from Heroku
+            driverClassName: "org.postgresql.Driver"
+            dialect: org.hibernate.PostgreSQLDialect
+            # values are embedded in the DATABASE_URL
+            # username: ${DB_USERNAME}                     # POSTGRES db username (app id)
+            # password: ${DB_PASSWORD}                     # POSTGRES db password
+        # CORS url values below
+        url:
+            allowOrigin: ${URL_ALLOW_ORIGIN}             # Grails program
+            startGame: ${URL_START_GAME}                 # passes Game params
+            gameEmcee: ${URL_GAME_EMCEE}                 # returns Game summary
+        grails:
+            plugin:
+                fields:
+                    disableLookupCache: false
+---
+olr:
+    admin:
+        username: ${OLR_ADMIN_USERNAME}     # OLR Main admin username
+        password: ${OLR_ADMIN_PASSWORD}     # OLR Main admin password
+    user:
+        username: ${OLR_USER_USERNAME}     # OLR Main user username
+        password: ${OLR_USER_PASSWORD}     # OLR Main user password
+---
+server:
+#   port: ${PORT} doesn't work!  PORT value treated as string!!!
+#    port: 8080
+    session.timeout: 36000

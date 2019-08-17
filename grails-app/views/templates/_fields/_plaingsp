@@ -1,0 +1,19 @@
+<h1>PlainTable</h1>
+<table>
+    <thead>
+         <tr>
+            <g:each in="${columnProperties}" var="p" status="i">
+                <g:sortableColumn property="${p.property}" title="${p.label}" />
+            </g:each>
+        </tr>
+    </thead>
+    <tbody>
+        <g:each in="${collection}" var="bean" status="i">
+            <tr>
+                <g:each in="${columnProperties}" var="p" status="j">
+                    <td><f:display bean="${bean}" property="${p.property}" /></td>
+                </g:each>
+            </tr>
+        </g:each>
+    </tbody>
+</table>
