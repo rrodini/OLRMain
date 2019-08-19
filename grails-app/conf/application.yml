@@ -137,7 +137,7 @@ environments:
     # logSql is a debug setting
     #            logSql: true
             dbCreate: 'update'   # 'create', 'create-drop', 'update', 'validate'
-            url: "jdbc:${DATABASE_URL}"                       # POSTGRES url - env name from Heroku
+            url: "${JDBC_URL}"                       # ?...user=abc&password=xyz
             driverClassName: "org.postgresql.Driver"
             dialect: org.hibernate.PostgreSQLDialect
             # values are embedded in the DATABASE_URL
