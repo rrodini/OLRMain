@@ -60,7 +60,7 @@ dependencies {
 //  postgres jdbc driver
     runtime "org.postgresql:postgresql:42.2.5"
 //  H2 database driver
-    runtime "com.h2database:h2"
+//    runtime "com.h2database:h2"
     runtime "org.apache.tomcat:tomcat-jdbc"
     runtime "com.bertramlabs.plugins:asset-pipeline-grails:2.14.2"
     testCompile "org.grails:grails-gorm-testing-support"

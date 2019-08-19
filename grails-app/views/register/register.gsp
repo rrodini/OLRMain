@@ -14,7 +14,7 @@
 		<br/>
 		<table>
 			<tbody>
-			<g:hiddenField name="version" value="${this.?.version}" />
+			<g:hiddenField name="version" value="${this?.version}" />
 			<s2ui:textFieldRow name='username' size='40' labelCodeDefault='Username' required='true' />
 			<s2ui:textFieldRow name='email' size='40' labelCodeDefault='E-mail' required='true' />
 			<s2ui:passwordFieldRow name='password' size='40' labelCodeDefault='Password' required='true' />
