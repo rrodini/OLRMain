@@ -150,9 +150,9 @@ class BootStrap {
             assert userRole
             def password = grailsApplication.config.getProperty('olr.user.password')
 //            def profile = new UserProfile(email: "rrodini@hotmail.com", firstName: "Rocky", lastName: "Racoon").save(failOnError: true)
-            userRock = new User(username: username, password: userpassword, email: "rrodini@hotmail.com", firstName: "Bob", lastName: "Rodini").save(failOnError: true)
-            def qf = populateQuestionFile(userRock)
-            userRock.addToQuestionFiles(qf)
+            userRock = new User(username: username, password: password, email: "rrodini@hotmail.com", firstName: "Bob", lastName: "Rodini").save(failOnError: true)
+//            def qf = populateQuestionFile(userRock)
+//            userRock.addToQuestionFiles(qf)
             UserRole.create userRock, userRole
             UserRole.withSession {
                 it.flush()
