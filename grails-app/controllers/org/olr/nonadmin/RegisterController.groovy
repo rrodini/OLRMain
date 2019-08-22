@@ -121,6 +121,7 @@ class RegisterController  extends grails.plugin.springsecurity.ui.RegisterContro
                     email: user.email,
                     username: user.username,
                     password: user.password,
+                    password2: user.password,
                     firstName: user.firstName,
                     lastName: user.lastName,
                     org: user.org,

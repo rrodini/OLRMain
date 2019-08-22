@@ -9,8 +9,8 @@
         <fieldset class="form">
             <table>
                 <tbody>
-                <!-- g:hiddenField name="version" value="${profileCommand.version}" / -->
-                <!-- s2ui:textFieldRow name='username' size='40' labelCodeDefault='Username' required='true' hidden='true'/ -->
+                <g:hiddenField name="version" value="${profileCommand.version}" />
+                <g:hiddenField name='username' value="${profileCommand.username}" />
                 <s2ui:textFieldRow name='firstName' size='40' labelCodeDefault='First name' required='true'/>
                 <s2ui:textFieldRow name='lastName' size='40' labelCodeDefault='Last name' required='true'/>
                 <s2ui:textFieldRow name='email' size='40' labelCodeDefault='E-mail' required='true' />
