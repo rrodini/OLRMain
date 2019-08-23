@@ -1,6 +1,11 @@
 // This groovy file is dedicated to Spring Security settings.
+
+//import grails.core.GrailsApplication
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+//import org.springframework.beans.factory.annotation.Autowired
+//import org.springframework.beans.factory.annotation.Value
+
 Logger log = LoggerFactory.getLogger(this.class.name)
 // Added by the Spring Security Core plugin:
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'org.olr.admin.User'
@@ -84,4 +89,25 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**/favicon.ico', filters: 'none'],
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
+// below is to force login over https connection
+//GrailsApplication grailsApplication
+//def channelReq = grailsApplication.config.getProperty('env') == 'development'?
+//		'REQUIRES_INSECURE_CHANNEL' : 'REQUIRES_SECURE_CHANNEL'
+//grails.plugin.springsecurity.secureChannel.definition = [
+//	[pattern: '/**',             access: channelReq],
+//]
+// below is to force all traffic over HTTPS connection
+environments {
+	development{
+		grails.plugin.springsecurity.secureChannel.definition = [
+			[pattern: '/**',             access: 'REQUIRES_INSECURE_CHANNEL'],
+		]
+	}
 
+	production{
+		grails.plugin.springsecurity.secureChannel.definition = [
+			[pattern: '/**',          access: 'REQUIRES_SECURE_CHANNEL'],
+		]
+	}
+
+}

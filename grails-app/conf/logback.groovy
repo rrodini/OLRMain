@@ -38,7 +38,6 @@ if (Environment.isDevelopmentMode() && targetDir != null) {
 //root(ERROR, ['STDOUT'])
 // Heroku expects all logs to STDOUT
 println  "Log level: ${System.getenv("LOG_LEVEL")}"
-println  "DATABASE_URL: ${System.getenv("DATABASE_URL")}"
 def level = ERROR
 switch (System.getenv("LOG_LEVEL")) {
     case "TRACE": level = TRACE; break;   // most granular
