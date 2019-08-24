@@ -99,8 +99,8 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 //	[pattern: '/**',             access: channelReq],
 //]
 // below is to force all traffic over HTTPS connection
-SpringSecurityService springSecurityService
-springSecurityService.clearCachedRequestmaps()
+//SpringSecurityService springSecurityService
+//springSecurityService.clearCachedRequestmaps()
 environments {
 	development{
 		grails.plugin.springsecurity.secureChannel.definition = [
