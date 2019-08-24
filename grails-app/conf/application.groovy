@@ -100,7 +100,7 @@ environments {
 	production{
 		grails.plugin.springsecurity.auth.forceHttps = true
 		grails.plugin.springsecurity.secureChannel.definition = [
-			[pattern: '/**',          access: 'REQUIRES_SECURE_CHANNEL'],
+			[pattern: '/**',          access: 'REQUIRES_INSECURE_CHANNEL'],
 		]
 	}
 }
