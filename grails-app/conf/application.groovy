@@ -1,7 +1,5 @@
 // This groovy file is dedicated to Spring Security settings.
 
-//import grails.core.GrailsApplication
-import grails.plugin.springsecurity.SpringSecurityService
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 //import org.springframework.beans.factory.annotation.Autowired
@@ -91,26 +89,17 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 //    [pattern: '/login/**',       filters: 'none'],  // new line for HTTPS
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
-// below is to force login over https connection
-//GrailsApplication grailsApplication
-//def channelReq = grailsApplication.config.getProperty('env') == 'development'?
-//		'REQUIRES_INSECURE_CHANNEL' : 'REQUIRES_SECURE_CHANNEL'
-//grails.plugin.springsecurity.secureChannel.definition = [
-//	[pattern: '/**',             access: channelReq],
-//]
 // below is to force all traffic over HTTPS connection
-//SpringSecurityService springSecurityService
-//springSecurityService.clearCachedRequestmaps()
-//environments {
-//	development{
-//		grails.plugin.springsecurity.secureChannel.definition = [
-//			[pattern: '/',             access: 'REQUIRES_INSECURE_CHANNEL'],
-//		]
-//	}
-//
-//	production{
-//		grails.plugin.springsecurity.secureChannel.definition = [
-//			[pattern: '/login/**',          access: 'REQUIRES_INSECURE_CHANNEL'],
-//		]
-//	}
-//}
+environments {
+	development{
+		grails.plugin.springsecurity.secureChannel.definition = [
+			[pattern: '/path/**',             access: 'REQUIRES_INSECURE_CHANNEL'],
+		]
+	}
+
+	production{
+		grails.plugin.springsecurity.secureChannel.definition = [
+			[pattern: '/path/**',          access: 'REQUIRES_SECURE_CHANNEL'],
+		]
+	}
+}
