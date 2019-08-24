@@ -93,13 +93,13 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 environments {
 	development{
 		grails.plugin.springsecurity.secureChannel.definition = [
-			[pattern: '/path/**',             access: 'REQUIRES_INSECURE_CHANNEL'],
+			[pattern: '/**',             access: 'REQUIRES_INSECURE_CHANNEL'],
 		]
 	}
 
 	production{
 		grails.plugin.springsecurity.secureChannel.definition = [
-			[pattern: '/path/**',          access: 'REQUIRES_SECURE_CHANNEL'],
+			[pattern: '/**',          access: 'REQUIRES_SECURE_CHANNEL'],
 		]
 	}
 }
