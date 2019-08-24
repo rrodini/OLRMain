@@ -88,7 +88,7 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**/css/**',      filters: 'none'],
 	[pattern: '/**/images/**',   filters: 'none'],
 	[pattern: '/**/favicon.ico', filters: 'none'],
-    [pattern: '/login/**',       filters: 'none'],  // new line for HTTPS
+//    [pattern: '/login/**',       filters: 'none'],  // new line for HTTPS
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
 // below is to force login over https connection
@@ -101,17 +101,16 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 // below is to force all traffic over HTTPS connection
 //SpringSecurityService springSecurityService
 //springSecurityService.clearCachedRequestmaps()
-environments {
-	development{
-		grails.plugin.springsecurity.secureChannel.definition = [
-			[pattern: '/',             access: 'REQUIRES_INSECURE_CHANNEL'],
-		]
-	}
-
-	production{
-		grails.plugin.springsecurity.secureChannel.definition = [
-			[pattern: '/login/**',          access: 'REQUIRES_INSECURE_CHANNEL'],
-		]
-	}
-
-}
+//environments {
+//	development{
+//		grails.plugin.springsecurity.secureChannel.definition = [
+//			[pattern: '/',             access: 'REQUIRES_INSECURE_CHANNEL'],
+//		]
+//	}
+//
+//	production{
+//		grails.plugin.springsecurity.secureChannel.definition = [
+//			[pattern: '/login/**',          access: 'REQUIRES_INSECURE_CHANNEL'],
+//		]
+//	}
+//}
