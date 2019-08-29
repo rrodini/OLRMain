@@ -127,6 +127,7 @@
 .bootgrid-table td.select-cell .select-box {
   margin: 0;
   outline: 0;
+  pointer-events: none; /* added - enables clicking on checkbox directly. */
 }
 .table-responsive .bootgrid-table {
   table-layout: inherit !important;

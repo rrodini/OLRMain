@@ -27,4 +27,15 @@ public enum GameTypeEnum {
         return "Unknown game";
     }
 
+    public String getShortNameFromNumber(int n) {
+        switch (n) {
+            case 0:
+                return "PR";
+            case 1:
+                return "OLR";
+            case 2:
+                return "CDR";
+        }
+        return "Unknown game";
+    }
 }

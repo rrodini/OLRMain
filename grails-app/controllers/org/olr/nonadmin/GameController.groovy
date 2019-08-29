@@ -52,7 +52,7 @@ class GameController {
     def index(Integer max) {
         def rowList
         def gameCount
-        params.max = Math.min(max ?: 10, 100)
+        params.max = Math.min(max?: 10, 10)
 
         def user = springSecurityService.currentUser
         if (SpringSecurityUtils.ifAnyGranted('ROLE_ADMIN')) {
@@ -63,7 +63,6 @@ class GameController {
             rowList = ownerFileService.gameListByOwner(params)
             gameCount = ownerFileService.gameListByOwnerCount(params)
         }
-        gameCount = rowList.size()
         render view: "index" , model:[gameList: rowList, gameCount: gameCount]
     }
 

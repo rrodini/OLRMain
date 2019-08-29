@@ -36,10 +36,10 @@ class Game {
         endTime nullable: true
         emcee column: 'EMCEE_ID'
         roomNo sqlType: 'smallint', nullable: true
-        gameType  sqlType: 'smallint'
+        gameType  sqlType: 'smallint', widget: 'text'  // don't display: 0,1,2 display PR,OLR,CR
         questionCount sqlType: 'smallint', nullable: true
         duration nullable:true
-        description nullable:true
+        description nullable:true, widget: 'textarea'
     }
 
     @Override
