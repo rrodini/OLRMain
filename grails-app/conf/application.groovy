@@ -86,6 +86,8 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**/css/**',      filters: 'none'],
 	[pattern: '/**/images/**',   filters: 'none'],
 	[pattern: '/**/favicon.ico', filters: 'none'],
+// EXPERIMENTAL line below
+    [pattern: '/login/**',       filters: 'none'],  // new line for HTTPS
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
 // below is to force all traffic over HTTPS connection
