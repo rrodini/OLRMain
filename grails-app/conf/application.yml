@@ -11,6 +11,10 @@ grails:
             # Whether to translate GORM events into Reactor events
             # Disabled by default for performance reasons
             events: false
+# force use of HTTPS (except development)
+    plugin:
+        forceSSL:
+            enabled: true
 info:
     app:
         name: '@info.app.name@'
@@ -113,7 +117,7 @@ environments:
 # logSql is a debug setting
 #            logSql: true
             dbCreate: 'update'   # 'create', 'create-drop', 'update', 'validate'
-            url: "${DATABASE_URL}"                       # POSTGRES url - env name from Heroku
+            url: "${JDBC_URL}"                          # POSTGRES url - dictated by Heroku
             driverClassName: "org.postgresql.Driver"
             dialect: org.hibernate.PostgreSQLDialect
             username: ${DB_USERNAME}                     # POSTGRES db username (app id)
