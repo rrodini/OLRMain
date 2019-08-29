@@ -99,10 +99,13 @@ environments {
 	}
 
 	production{
+		grails.serverURL = "http://olrmain.herokuapp.com"
+		grails.plugin.springsecurity.secureChannel.useHeaderChannelSecurity = true
 		grails.plugin.springsecurity.auth.forceHttps = true
 		portMapper.httpPort = 80
 		portMapper.httpsPort = 443
 		grails.plugin.springsecurity.secureChannel.definition = [
+				[pattern: 'assets/**',	  access: 'ANY_CHANNEL'],
 				[pattern: '/**',          access: 'REQUIRES_SECURE_CHANNEL'],
 		]
 	}

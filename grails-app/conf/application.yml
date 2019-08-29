@@ -15,6 +15,8 @@ grails:
 #    plugin:
 #        forceSSL:
 #            enabled: true
+#    serverURL:
+#        "https://olrmain.herokuapp.com/app/build/libs/OLRMain-0.9.101.war"
 info:
     app:
         name: '@info.app.name@'
