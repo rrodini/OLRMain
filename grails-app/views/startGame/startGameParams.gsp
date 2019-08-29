@@ -21,17 +21,26 @@
     <!-- Step 1: section Game Type -->
     <h1>Select Game Type:</h1>
     <section>
-        <div>
+        <div style="display:inline-block">
+            <span style="float: left">
             <input type="radio" id="prGame" name="gameType" value="0" style="display:inline-block" checked="checked">
             <label for="prGame">Presentation Round</label>
+            </span>
+            <span>&nbsp; No players. Emcee projects questions to the audience for review.
         </div>
-        <div>
+        <div style="display:inline-block">
+            <span style="float: left">
             <input type="radio" id="olrGame" name="gameType" value="1" style="display:inline-block">
             <label for="olrGame">Open Lightning Round </label>
+            </span>
+            <span>&nbsp; Open to players (or teams) with a device. Emcee marks answers "corrent" or  "incorrent".</span>
         </div>
-        <div>
+        <div style="display:inline-block">
+            <span style="float: left">
             <input type="radio" id="cdrGame" name="gameType" value="2" style="display:inline-block">
             <label for="cdrGame">Countdown Round </label>
+            </span>
+            <span>&nbsp; Must use a player file.  Formal Countdown Rules rules apply.</span>
         </div>
    </section>
     <!-- Step 2: section Question File -->
