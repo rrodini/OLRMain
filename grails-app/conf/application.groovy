@@ -88,3 +88,20 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**/favicon.ico', filters: 'none'],
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
+// below is to force all traffic over HTTPS connection
+environments {
+	development{
+		grails.plugin.springsecurity.secureChannel.definition = [
+				[pattern: '/**',             access: 'REQUIRES_INSECURE_CHANNEL'],
+		]
+	}
+
+	production{
+		grails.plugin.springsecurity.auth.forceHttps = true
+		portMapper.httpPort = 80
+		portMapper.httpsPort = 443
+		grails.plugin.springsecurity.secureChannel.definition = [
+				[pattern: '/**',          access: 'REQUIRES_SECURE_CHANNEL'],
+		]
+	}
+}

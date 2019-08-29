@@ -12,9 +12,9 @@ grails:
             # Disabled by default for performance reasons
             events: false
 # force use of HTTPS (except development)
-    plugin:
-        forceSSL:
-            enabled: true
+#    plugin:
+#        forceSSL:
+#            enabled: true
 info:
     app:
         name: '@info.app.name@'
