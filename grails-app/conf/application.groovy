@@ -85,8 +85,6 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**/css/**',      filters: 'none'],
 	[pattern: '/**/images/**',   filters: 'none'],
 	[pattern: '/**/favicon.ico', filters: 'none'],
-// EXPERIMENTAL line below
-//    [pattern: '/login/**',       filters: 'none'],  // new line for HTTPS
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
 // below is to force all traffic over HTTPS connection
@@ -105,8 +103,8 @@ environments {
 		grails.plugin.springsecurity.secureChannel.secureHeaderValue = 'http'
 		grails.plugin.springsecurity.secureChannel.insecureHeaderName = 'X-Forwarded-Proto'
 		grails.plugin.springsecurity.secureChannel.insecureHeaderValue = 'https'
-		grails.plugin.springsecurity.secureChannel.portMapper.httpPort = 80
-		grails.plugin.springsecurity.secureChannel.portMapper.httpsPort = 443
+//		grails.plugin.springsecurity.secureChannel.portMapper.httpPort = 80
+//		grails.plugin.springsecurity.secureChannel.portMapper.httpsPort = 443
 		grails.plugin.springsecurity.secureChannel.definition = [
 				[pattern: 'assets/**',	  access: 'ANY_CHANNEL'],
 				[pattern: '/**',          access: 'REQUIRES_SECURE_CHANNEL'],
