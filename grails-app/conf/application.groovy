@@ -99,9 +99,9 @@ environments {
 	}
 
 	production{
-		grails.serverURL = "https://olrmain.herokuapp.com"
+		grails.serverURL = "olrmain.herokuapp.com"
 		grails.plugin.springsecurity.auth.forceHttps = true
-		grails.plugin.springsecurity.secureChannel.useHeaderChannelSecurity = true
+		grails.plugin.springsecurity.secureChannel.useHeaderCheckChannelSecurity = true
 		grails.plugin.springsecurity.secureChannel.secureHeaderName = 'X-Forwarded-Proto'
 		grails.plugin.springsecurity.secureChannel.secureHeaderValue = 'http'
 		grails.plugin.springsecurity.secureChannel.insecureHeaderName = 'X-Forwarded-Proto'
