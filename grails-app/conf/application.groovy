@@ -73,7 +73,6 @@ grails.plugin.springsecurity.interceptUrlMap = [
 // TODO: review the 2 lines below
 	[pattern: '/endGame/**',     access: ['permitAll']],
 	[pattern: '/gameSummary/**', access: ['permitAll']],
-//	[pattern: '/questionFile/pickList', access: ['permitAll']],
 //  below requires package naming convention plus custom url mappings
 	[pattern: '/index_admin/**',access: ['ROLE_ADMIN']],
 	[pattern: '/admin/**',      access: ['ROLE_ADMIN']],
@@ -87,7 +86,7 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**/images/**',   filters: 'none'],
 	[pattern: '/**/favicon.ico', filters: 'none'],
 // EXPERIMENTAL line below
-    [pattern: '/login/**',       filters: 'none'],  // new line for HTTPS
+//    [pattern: '/login/**',       filters: 'none'],  // new line for HTTPS
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
 // below is to force all traffic over HTTPS connection
