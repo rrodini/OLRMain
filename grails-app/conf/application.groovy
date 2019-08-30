@@ -2,8 +2,6 @@
 
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-//import org.springframework.beans.factory.annotation.Autowired
-//import org.springframework.beans.factory.annotation.Value
 
 Logger log = LoggerFactory.getLogger(this.class.name)
 // Added by the Spring Security Core plugin:
@@ -19,6 +17,7 @@ grails.plugin.springsecurity.userLookup.usernamePropertyName = "username"
 grails.plugin.springsecurity.userLookup.passwordPropertyName = "password"
 grails.plugin.springsecurity.authority.nameField = "authority"
 grails.plugin.springsecurity.logout.postOnly=false
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = "https://olrmain.herokuapp.com"
 // hierarchical roles added
 grails.plugin.springsecurity.roleHierarchy = '''
   ROLE_ADMIN > ROLE_USER
@@ -103,8 +102,8 @@ environments {
 		grails.plugin.springsecurity.secureChannel.secureHeaderValue = 'http'
 		grails.plugin.springsecurity.secureChannel.insecureHeaderName = 'X-Forwarded-Proto'
 		grails.plugin.springsecurity.secureChannel.insecureHeaderValue = 'https'
-//		grails.plugin.springsecurity.secureChannel.portMapper.httpPort = 80
-//		grails.plugin.springsecurity.secureChannel.portMapper.httpsPort = 443
+		grails.plugin.springsecurity.secureChannel.portMapper.httpPort = 80
+		grails.plugin.springsecurity.secureChannel.portMapper.httpsPort = 443
 		grails.plugin.springsecurity.secureChannel.definition = [
 				[pattern: 'assets/**',	  access: 'ANY_CHANNEL'],
 				[pattern: '/**',          access: 'REQUIRES_SECURE_CHANNEL'],
