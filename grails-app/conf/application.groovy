@@ -17,7 +17,8 @@ grails.plugin.springsecurity.userLookup.usernamePropertyName = "username"
 grails.plugin.springsecurity.userLookup.passwordPropertyName = "password"
 grails.plugin.springsecurity.authority.nameField = "authority"
 grails.plugin.springsecurity.logout.postOnly=false
-grails.plugin.springsecurity.successHandler.defaultTargetUrl = "https://olrmain.herokuapp.com"
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = "https://olrmain.herokuapp.com/"
+grails.plugin.springsecurity.logout.afterLogoutUrl = "https://olrmain.herokuapp.com/"
 // hierarchical roles added
 grails.plugin.springsecurity.roleHierarchy = '''
   ROLE_ADMIN > ROLE_USER
@@ -84,6 +85,7 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**/css/**',      filters: 'none'],
 	[pattern: '/**/images/**',   filters: 'none'],
 	[pattern: '/**/favicon.ico', filters: 'none'],
+//	[pattern: '/logout/**',		 filters: 'none'],
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
 // below is to force all traffic over HTTPS connection
