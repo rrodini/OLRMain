@@ -160,7 +160,7 @@ environments:
                     disableLookupCache: false
 # to get logoff to work!!
         server:
-            use-forward-headers: true
+            use-forward-headers: false
             tomcat:
                 remote-ip-header: x-forwarded-for
                 protocol-header: x-forwarded-proto
