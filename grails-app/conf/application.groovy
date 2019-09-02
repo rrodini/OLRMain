@@ -17,9 +17,6 @@ grails.plugin.springsecurity.userLookup.usernamePropertyName = "username"
 grails.plugin.springsecurity.userLookup.passwordPropertyName = "password"
 grails.plugin.springsecurity.authority.nameField = "authority"
 grails.plugin.springsecurity.logout.postOnly=false
-// activating the lines below redirects to Heroku website!  Not good for DEVELOPMENT.
-//grails.plugin.springsecurity.successHandler.defaultTargetUrl = "https://olrmain.herokuapp.com/"
-//grails.plugin.springsecurity.logout.afterLogoutUrl = "https://olrmain.herokuapp.com/"
 // hierarchical roles added
 grails.plugin.springsecurity.roleHierarchy = '''
   ROLE_ADMIN > ROLE_USER
@@ -97,6 +94,9 @@ environments {
 	}
 
 	production{
+		// lines below are only for production
+		grails.plugin.springsecurity.successHandler.defaultTargetUrl = "https://olrmain.herokuapp.com/"
+		grails.plugin.springsecurity.logout.afterLogoutUrl = "https://olrmain.herokuapp.com/index"
 		grails.serverURL = "https://olrmain.herokuapp.com"
 		grails.plugin.springsecurity.auth.forceHttps = true
 		grails.plugin.springsecurity.secureChannel.useHeaderCheckChannelSecurity = true
