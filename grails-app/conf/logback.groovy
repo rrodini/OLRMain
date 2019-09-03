@@ -42,8 +42,8 @@ if (Environment.isDevelopmentMode() && targetDir != null) {
 println  "LOG_LEVEL: ${System.getenv("LOG_LEVEL")}"
 println  "GRAILS_ENV: ${System.getenv("GRAILS_ENV")}"
 println  "Environment.current: ${Environment.current}"
-println  "tomcat: ${GrailsApplication.config.getProperty('server.tomcat.remote-ip-header')}"
-println  "tomcat: ${GrailsApplication.config.getProperty('server.tomcat.protocol-header')}"
+println  "tomcat: ${GrailsApplication.getConfig().getProperty('server.tomcat.remote-ip-header')}"
+println  "tomcat: ${GrailsApplication.getConfig().getProperty('server.tomcat.protocol-header')} "
 def level = ERROR
 switch (System.getenv("LOG_LEVEL")) {
     case "TRACE": level = TRACE; break;   // most granular
