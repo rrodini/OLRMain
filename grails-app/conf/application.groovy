@@ -76,15 +76,15 @@ grails.plugin.springsecurity.interceptUrlMap = [
 	[pattern: '/admin/**',      access: ['ROLE_ADMIN']],
 	[pattern: '/**/',            access: ['ROLE_USER']],
 ]
-// below is unaltered except for /logoff/** addition
+// below is unaltered
 grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/assets/**',      filters: 'none'],
 	[pattern: '/**/js/**',       filters: 'none'],
 	[pattern: '/**/css/**',      filters: 'none'],
 	[pattern: '/**/images/**',   filters: 'none'],
 	[pattern: '/**/favicon.ico', filters: 'none'],
-	[pattern: '/logout/**',       filters: 'none'],
-	[pattern: '/logoff/**',      filters: 'none'],
+//	[pattern: '/logout/**',       filters: 'none'],
+//	[pattern: '/logoff/**',      filters: 'none'],
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
 // below is to force all traffic over HTTPS connection
@@ -98,7 +98,7 @@ environments {
 	production{
 		// lines below are only for production
 		grails.plugin.springsecurity.successHandler.defaultTargetUrl = "https://olrmain.herokuapp.com/"
-		grails.plugin.springsecurity.logout.afterLogoutUrl = "https://olrmain.herokuapp.com/index"
+//		grails.plugin.springsecurity.logout.afterLogoutUrl = "https://olrmain.herokuapp.com"
 		grails.serverURL = "https://olrmain.herokuapp.com"
 		grails.plugin.springsecurity.auth.forceHttps = true
 		grails.plugin.springsecurity.secureChannel.useHeaderCheckChannelSecurity = true
