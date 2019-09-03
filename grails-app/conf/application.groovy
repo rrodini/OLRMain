@@ -105,8 +105,8 @@ environments {
 		grails.plugin.springsecurity.secureChannel.secureHeaderValue = 'http'
 		grails.plugin.springsecurity.secureChannel.insecureHeaderName = 'X-Forwarded-Proto'
 		grails.plugin.springsecurity.secureChannel.insecureHeaderValue = 'https'
-		grails.plugin.springsecurity.secureChannel.portMapper.httpPort = 443
-		grails.plugin.springsecurity.secureChannel.portMapper.httpsPort = 443
+		grails.plugin.springsecurity.portMapper.httpPort = 80
+		grails.plugin.springsecurity.portMapper.httpsPort = 443
 		grails.plugin.springsecurity.secureChannel.definition = [
 				[pattern: 'assets/**',	  access: 'ANY_CHANNEL'],
 				[pattern: '/**',          access: 'REQUIRES_SECURE_CHANNEL'],
