@@ -9,7 +9,7 @@ class CorsInterceptor {
 
     boolean before() {
         // TODO: don't print passwords
-        log.error("${params.toString()}")  // log all urls and params
+//        log.error("${params.toString()}")  // log all urls and params
         if (request.method == "OPTIONS") {
             response.setHeader("Access-Control-Allow-Origin", "${grailsApplication.config.getProperty('url.allowOrigin')}")
 // below should only be enabled in DEVELOPMENT env for debugging

@@ -53,6 +53,6 @@ switch (System.getenv("LOG_LEVEL")) {
 
 root(level, ['STDOUT'])
 // what to log?
-//logger 'org.springframework.security', TRACE, ['STDOUT'], false
-//logger 'grails.plugin.springsecurity', DEBUG, ['STDOUT'], false
+logger 'org.springframework.security', TRACE, ['STDOUT'], false
+logger 'grails.plugin.springsecurity', DEBUG, ['STDOUT'], false
 //logger 'grails.plugin.formfields', TRACE, ['STDOUT'], false
