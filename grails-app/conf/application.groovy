@@ -76,13 +76,14 @@ grails.plugin.springsecurity.interceptUrlMap = [
 	[pattern: '/admin/**',      access: ['ROLE_ADMIN']],
 	[pattern: '/**/',            access: ['ROLE_USER']],
 ]
-// below is unaltered
+// below is unaltered except for /logoff/** addition
 grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/assets/**',      filters: 'none'],
 	[pattern: '/**/js/**',       filters: 'none'],
 	[pattern: '/**/css/**',      filters: 'none'],
 	[pattern: '/**/images/**',   filters: 'none'],
 	[pattern: '/**/favicon.ico', filters: 'none'],
+	[pattern: '/logut/**',       filters: 'none'],
 	[pattern: '/logoff/**',      filters: 'none'],
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
