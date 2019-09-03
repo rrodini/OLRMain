@@ -1,4 +1,4 @@
 # these lines tell Tomcat about the headers for HTTPs
-server.use-forward-headers=true
+server.use-forward-headers=false
 server.tomcat.remote-ip-header=x-forwarded-for
 server.tomcat.protocol-header=x-forwarded-proto

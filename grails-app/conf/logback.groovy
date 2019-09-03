@@ -1,6 +1,7 @@
 import ch.qos.logback.classic.Level
 import grails.util.BuildSettings
 import grails.util.Environment
+import grails.core.GrailsApplication
 import org.springframework.boot.logging.logback.ColorConverter
 import org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter
 
@@ -8,6 +9,7 @@ import java.nio.charset.Charset
 
 conversionRule 'clr', ColorConverter
 conversionRule 'wex', WhitespaceThrowableProxyConverter
+GrailsApplication grailsApplication
 
 // See http://logback.qos.ch/manual/groovy.html for details on configuration
 appender('STDOUT', ConsoleAppender) {
@@ -37,7 +39,11 @@ if (Environment.isDevelopmentMode() && targetDir != null) {
 // original below
 //root(ERROR, ['STDOUT'])
 // Heroku expects all logs to STDOUT
-println  "Log level: ${System.getenv("LOG_LEVEL")}"
+println  "LOG_LEVEL: ${System.getenv("LOG_LEVEL")}"
+println  "GRAILS_ENV: ${System.getenv("GRAILS_ENV")}"
+println  "Environment.current: ${Environment.current}"
+println  "tomcat: ${GrailsApplication.config.getProperty('server.tomcat.remote-ip-header')}"
+println  "tomcat: ${GrailsApplication.config.getProperty('server.tomcat.protocol-header')}"
 def level = ERROR
 switch (System.getenv("LOG_LEVEL")) {
     case "TRACE": level = TRACE; break;   // most granular

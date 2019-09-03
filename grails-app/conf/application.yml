@@ -160,7 +160,7 @@ environments:
                     disableLookupCache: false
 # to get logoff to work!!
         server:
-            use-forward-headers: false
+#            use-forward-headers: false
             tomcat:
                 remote-ip-header: x-forwarded-for
                 protocol-header: x-forwarded-proto
@@ -177,6 +177,3 @@ server:
 #   port: ${PORT} doesn't work!  PORT value treated as string!!!
     port: 8080
     session.timeout: 36000
-#    server.use-forward-headers=true
-#    server.tomcat.remote-ip-header=x-forwarded-for
-#    server.tomcat.protocol-header=x-forwarded-proto
