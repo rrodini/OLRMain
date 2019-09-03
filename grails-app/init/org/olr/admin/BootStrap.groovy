@@ -9,9 +9,9 @@ class BootStrap {
 
     def init = { servletContext ->
 
-        println  "tomcat: ${GrailsApplication.config.getProperty('server.tomcat.remote-ip-header')}"
+        println  "tomcat: ${grailsApplication.config.getProperty('server.tomcat.remote-ip-header')}"
 
-        println  "tomcat: ${GrailsApplication.config.getProperty('server.tomcat.protocol-header')} "
+        println  "tomcat: ${grailsApplication.config.getProperty('server.tomcat.protocol-header')} "
 
 
         // populate an admin user
