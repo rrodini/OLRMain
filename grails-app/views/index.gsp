@@ -95,7 +95,7 @@
     <div id="content" role="main">
         <section class="row colset-2-its">
             <h1>Welcome to Open Lightning Round</h1>
-            <sec:ifLoggedIn >
+            <sec:ifAnyGranted roles='ROLE_ADMIN,ROLE_USER' >
             <div align="center">
                 <g:form controller="startGame" action = "index" >
                     <!-- fieldset class="buttons" -->
@@ -104,7 +104,7 @@
                 </g:form>
 
             </div>
-            </sec:ifLoggedIn>
+            </sec:ifAnyGranted>
         </section>
     </div>
 

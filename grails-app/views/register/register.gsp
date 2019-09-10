@@ -1,6 +1,6 @@
 <html>
 <head>
-	<meta name="layout" content="${layoutRegister}"/>
+	<meta name="layout" content="register"/>
 	<s2ui:title messageCode='spring.security.ui.register.title'/>
 </head>
 <body>
@@ -29,7 +29,10 @@
 			<s2ui:textFieldRow name='orgZip' size='5' labelCodeDefault='Zip' />
 			</tbody>
 		</table>
+		<%--
 		<s2ui:submitButton elementId='submit' messageCode='spring.security.ui.register.submit'/>
+		--%>
+			<button type="submit" value="Register">Create</button>
 		</g:else>
 	</s2ui:form>
 </s2ui:formContainer>

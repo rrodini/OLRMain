@@ -8,6 +8,8 @@ Logger log = LoggerFactory.getLogger(this.class.name)
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'org.olr.admin.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'org.olr.admin.UserRole'
 grails.plugin.springsecurity.authority.className = 'org.olr.admin.Role'
+grails.plugin.springsecurity.ui.password.minLen = 6
+grails.plugin.springsecurity.ui.password.maxLen = 32
 // remember me cookie
 rememberMe.cookieName = "OLR_remember_me"
 rememberMe.key = "OLR_Rocks"
@@ -21,6 +23,8 @@ grails.plugin.springsecurity.logout.postOnly=false
 grails.plugin.springsecurity.roleHierarchy = '''
   ROLE_ADMIN > ROLE_USER
 '''
+// logout following new user registration
+grails.plugin.springsecurity.ui.register.postRegisterUrl = '/logout'
 // no email validation during registration
 grails.plugin.springsecurity.ui.register.requireEmailValidation = false
 // no email to reset (change) password

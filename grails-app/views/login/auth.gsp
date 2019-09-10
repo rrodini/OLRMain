@@ -15,6 +15,9 @@
 <s2ui:form type='login' focus='username'>
 <div class="sign-in">
 <h2><g:message code='spring.security.ui.login.signin'/></h2>
+	<g:if test="${params? params.login_error : 0}">
+		<div class="errors" role="alert">Incorrect login.  Both username and password are case-sensitive.</div>
+	</g:if>
 <table>
 <tr>
 <td><label for="username"><g:message code='spring.security.ui.login.username'/></label></td>

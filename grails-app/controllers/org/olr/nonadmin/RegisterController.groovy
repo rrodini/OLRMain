@@ -10,15 +10,14 @@ import grails.plugin.springsecurity.ui.ForgotPasswordCommand
 import grails.plugin.springsecurity.ui.ResetPasswordCommand
 import grails.plugin.springsecurity.ui.SecurityQuestionsCommand
 import grails.plugin.springsecurity.ui.RegistrationCode
-import grails.validation.ValidationException
+import grails.plugin.springsecurity.SpringSecurityUtils
 import groovy.text.SimpleTemplateEngine
 import org.springframework.context.MessageSource
 import org.springframework.context.i18n.LocaleContextHolder
-import static org.springframework.http.HttpStatus.OK
-
 import org.olr.admin.User
 
 //import grails.plugin.springsecurity.ui.RegisterCommand
+import org.olr.nonadmin.RegisterCommand
 
 class RegisterController  extends grails.plugin.springsecurity.ui.RegisterController {
     /* Copyright 2009-2016 the original author or authors.
@@ -79,9 +78,11 @@ class RegisterController  extends grails.plugin.springsecurity.ui.RegisterContro
 // Override this line
 //            def user = uiRegistrationCodeStrategy.createUser(registerCommand)
 // set the custom properties
+            def passwordPlainText = registerCommand.password
             def user = uiPropertiesStrategy.setProperties(
                     email: registerCommand.email,
                     username: registerCommand.username,
+                    password: registerCommand.password,
                     accountLocked: false,
                     enabled: true,
                     firstName: registerCommand.firstName,
@@ -103,12 +104,23 @@ class RegisterController  extends grails.plugin.springsecurity.ui.RegisterContro
             }
 
 
-
             if( requireEmailValidation  ) {
                 sendVerifyRegistrationMail registrationCode, user, registerCommand.email
                 [emailSent: true, registerCommand: registerCommand]
             } else {
-                redirectVerifyRegistration(uiRegistrationCodeStrategy.verifyRegistration(registrationCode.token))
+                 def rtn = uiRegistrationCodeStrategy.verifyRegistration(registrationCode.token)
+//                All attempts below to refresh the new user's role (goal ROLE_USER) have failed
+//                So the postRegisterUrl is set to 'logout'.  Not the best experience but it works.
+//                // ATTENTION: returns null
+//                def auth1 = springSecurityService.reauthenticate(user.username, passwordPlainText)
+//                // Force retrieval of Authentication object to set ROLE_USER
+//                auth1 = springSecurityService.getAuthentication()
+//                def principal = auth1.principal
+//                boolean authenticated = auth1.authenticated
+//                def roles = auth1.authorities
+//                // force logout of user w/o ROLE_USER
+//                auth1.setAuthenticated(false);
+                redirectVerifyRegistration(rtn);
             }
         }
         // new entry point
@@ -137,28 +149,28 @@ class RegisterController  extends grails.plugin.springsecurity.ui.RegisterContro
             }
         }
         // new entry point
-        def update(ProfileCommand cmd) {
-            if (cmd.hasErrors()) {
-                respond cmd, view: "edit"
-            }
-            def username = cmd.username
-            User user = User.findByUsername(username)
-            // TODO: error handling code here
-            user.version = cmd.version
-            user.email = cmd.email
-            user.password = cmd.password
-            user.firstName = cmd.firstName
-            user.lastName = cmd.lastName
-            user.org = cmd.org
-            user.orgAddress = cmd.orgAddress
-            user.orgCity = cmd.orgCity
-            user.orgState = cmd.orgState
-            user.orgZip = cmd.orgZip
-            if (!user.save(flush: true)) {
-                // TODDO: what to do here?
-            }
-            redirect uri:"/"
-        }
+//        def update(ProfileCommand cmd) {
+//            if (cmd.hasErrors()) {
+//                respond cmd, view: "edit"
+//            }
+//            def username = cmd.username
+//            User user = User.findByUsername(username)
+//            // TODO: error handling code here
+//            user.version = cmd.version
+//            user.email = cmd.email
+//            user.password = cmd.password
+//            user.firstName = cmd.firstName
+//            user.lastName = cmd.lastName
+//            user.org = cmd.org
+//            user.orgAddress = cmd.orgAddress
+//            user.orgCity = cmd.orgCity
+//            user.orgState = cmd.orgState
+//            user.orgZip = cmd.orgZip
+//            if (!user.save(flush: true)) {
+//                // TODDO: what to do here?
+//            }
+//            redirect uri:"/"
+//        }
 
         protected void redirectVerifyRegistration(def rtn) {
             if (rtn?.flashmsg) {
@@ -168,7 +180,6 @@ class RegisterController  extends grails.plugin.springsecurity.ui.RegisterContro
                     flash.message = message(code:rtn?.flashmsg)
                 }
             }
-
             //this should always be set but if not have a backup!
             redirect uri: rtn?.redirectmsg ?: successHandlerDefaultTargetUrl
         }

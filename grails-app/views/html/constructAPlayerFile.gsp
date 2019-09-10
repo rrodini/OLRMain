@@ -6,6 +6,6 @@
 </head>
 
 <body>
-<h1>How to construct a player file.</h1>
+<h1>Page is under construction.</h1>
 </body>
 </html>
