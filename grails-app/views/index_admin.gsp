@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Welcome to OLR Proxy Admin</title>
+    <title>Welcome to OLR Admin</title>
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
     <asset:script type="text/javascript" src="javascripts/jquery-2.2.0.min.js"/>
 </head>
