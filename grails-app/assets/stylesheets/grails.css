@@ -43,8 +43,9 @@ pre {
     width: 40px;
 
 }
+/*  changed color #4D8618 (grails green) => #23527C (grails blue) */
 .navbar-default, .navbar-static-top {
-    background-color: #4D8618;
+    background-color: #23527C;
     border: 0px;
 }
 a.navbar-brand {
@@ -112,8 +113,8 @@ a.navbar-brand {
 }
 
 #band {
-    /*grey =#808080*/
-    background: #79B94C  no-repeat 50% 30%;
+    /* changed background #79B94C => #337AB7 */
+    background: #337AB7  no-repeat 50% 30%;
     height: 400px;
 }
 

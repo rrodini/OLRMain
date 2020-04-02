@@ -33,6 +33,7 @@
 		<s2ui:submitButton elementId='submit' messageCode='spring.security.ui.register.submit'/>
 		--%>
 			<button type="submit" value="Register">Create</button>
+			<h2>You must login following registration.</h2>
 		</g:else>
 	</s2ui:form>
 </s2ui:formContainer>

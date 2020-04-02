@@ -11,6 +11,6 @@
 *= require grails
 *= require main
 *= require mobile
-*  require login
+*= require login
 *= require_self
 */

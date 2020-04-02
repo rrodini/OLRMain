@@ -25,9 +25,10 @@
                 </button>
                 <a class="navbar-brand" href="/#">
                     <i class="fa grails-icon">
-                        <asset:image src="grails-cupsonly-logo-white.svg"/>
-                    </i>OLR
+                        <asset:image src="olr-logo.svg"/>
+                    </i>
                 </a>
+                <!-- OLR -->
             </div>
             <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">
                 <ul class="nav navbar-nav navbar-right">

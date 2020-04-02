@@ -6,7 +6,9 @@
 --%>
 	<meta name="layout" content="main"/>
 <s2ui:title messageCode='spring.security.ui.login.title'/>
+<%--
 <asset:stylesheet src='spring-security-ui-auth.css'/>
+--%>
 </head>
 <body>
 <p/>
