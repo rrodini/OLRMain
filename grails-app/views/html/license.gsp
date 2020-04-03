@@ -6,7 +6,9 @@
 </head>
 
 <body>
-<h1>This software is licensed under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License.</a></h1>
-<h1>MATHCOUNTS® and Mathlete® are registered trademarks of the MATHCOUNTS Foundation.</h1>
+<div class="panel-body">
+<p>This software is licensed under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License.</a></p>
+<p>MATHCOUNTS® and Mathlete® are registered trademarks of the MATHCOUNTS Foundation.</p>
+</div>
 </body>
 </html>

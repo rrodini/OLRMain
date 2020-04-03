@@ -17,9 +17,9 @@
         <p>Emcee: ${emceeName}</p>
         <p>Room No: ${roomNo}</p>
         <p>Game type: ${gameType}</p>
-        <p>Quesion file id: ${questionFileId}</p>
+        <p>Question file id: ${questionFileId}</p>
         <p>Player file id: ${playerFileId}</p>
-        <p>Quesion count: ${questionCount}</p>
+        <p>Question count: ${questionCount}</p>
         <p>Duration: ${duration}</p>
         <p>Enter notes for this game:</p>
         <g:textArea id='description' name="description" rows="3" cols="70" >${description}</g:textArea>
