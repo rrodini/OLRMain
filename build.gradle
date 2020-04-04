@@ -10,7 +10,7 @@ buildscript {
     }
 }
 
-version "1.0.002"
+version "1.0.003"
 group "olrmain"
 
 apply plugin:"eclipse"

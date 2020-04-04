@@ -83,6 +83,7 @@
             <li><g:link controller="html" action="playAGame">How to play a game</g:link></li>
             <li><g:link controller="html" action="constructAPlayerFile">How to construct a player file</g:link></li>
             <li><g:link controller="html" action="constructAQuestionFile">How to construct a question file</g:link></li>
+            <li><g:link controller="html" action="gotchas">Gotchas (PLEASE READ)</g:link></li>
         </ul>
         <h1>My Stuff (+public)</h1>
         <ul>

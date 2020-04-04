@@ -6,16 +6,19 @@ class HtmlController {
         // By convention aboutUs.gsp will be rendered
     }
 
-    def playAGame() {
-    }
-
     def constructAPlayerFile() {
     }
 
     def constructAQuestionFile() {
     }
 
+    def gotchas() {
+    }
+
     def license() {
+    }
+
+    def playAGame() {
     }
 
 }
