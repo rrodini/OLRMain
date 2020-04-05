@@ -27,7 +27,7 @@
 </pre>
 <p>Facts:</p>
 <ol>
-    <li>Player Files are in <a href="https://www.w3schools.com/js/js_json_syntax.asp" target="_blank">Json</a> syntax. The syntax is exacting.  Player files must also obey this
+    <li>Player Files are in <a href="https://www.w3schools.com/js/js_json_syntax.asp" target="_blank">Json</a> syntax. The syntax is exacting.  Player Files must also obey this
         <a href="https://github.com/rrodini/OLRMain/blob/29c65b4dfd79a27fb927dd1de3249ba96c619742/src/main/resources/playerFileSchema.json"  target="_blank">schema</a>
         or else they will not be accepted.</li>
     <li>All fields are delimited by quotation marks except for player "rank" value which is a number.</li>

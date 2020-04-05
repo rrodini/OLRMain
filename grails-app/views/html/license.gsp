@@ -7,7 +7,8 @@
 
 <body>
 <div class="panel-body">
-<p>This software is licensed under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License.</a></p>
+<p>This software is licensed under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License.</a>
+   The source code is available on GitHub.</p>
 <p>MATHCOUNTS® and Mathlete® are registered trademarks of the MATHCOUNTS Foundation.</p>
 </div>
 </body>

@@ -44,29 +44,19 @@
     <a href="https://www.mathcounts.org/official-rules-procedures" target=_blank>
     MathCounts® competition rules</a> until one player wins the Countdown Round.
 </p>
-<h2>Roles</h2>
-<h3>Emcee</h3>
+<h2>Question File</h2>
 <p>
-    The emcee (usually the MathCounts® coach) starts a game and is given a room # by the application.  The emcee
-    should immediately start a browser page on the projector device and give the page the same room #.  Next,
-    the emcee should oversee the player registration for the OLR and CRD games.
+    The application is preloaded with Countdown Round questions from previous MathCounts® chapter level competitions.
+    These questions range from sometimes easy, to very difficult, requiring paper and pencil to solve.
 </p>
 <p>
-    At the end of the game the emcess should click the End Game button.  This records statistics for the game.
+    You can create your own Question Files which, by default, are private. Or, you can share them with others
+    by making them 'publik'.
 </p>
-<h3>Projector</h3>
+<h2>Player File</h2>
 <p>
-    The projector is not really a role -- it's just a device.  Typically, it's a laptop in the room that is
-    connected to an overhead projector that displays the question to the audience.
-</p>
-<h3>Player</h3>
-<p>
-    Each player in a OLR or CDR game must connect to the application, enter the room # and their name.  Each
-    can see the question on his/her device when the emcee asks one.  Each can buzz in and give an an answer.
-</p>
-<h3>Audience</h3>
-<p>
-    The audience can watch the projected question and follow the game. The audience should keep quiet throughout.
+    A Player File is only needed for a CDR type game. If you want this type of competition, you can use a
+    generic Player File that has the right number of players for the game.
 </p>
 </div>
 </body>

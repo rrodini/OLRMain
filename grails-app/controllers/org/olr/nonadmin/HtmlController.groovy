@@ -7,6 +7,7 @@ class HtmlController {
     }
 
     def constructAPlayerFile() {
+        // By convention contructAPlayerFile.gsp will be rendered
     }
 
     def constructAQuestionFile() {
@@ -19,6 +20,9 @@ class HtmlController {
     }
 
     def playAGame() {
+    }
+
+    def roles() {
     }
 
 }
