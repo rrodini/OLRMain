@@ -1,8 +1,6 @@
 package org.olr.nonadmin
 
-import grails.core.GrailsApplication
-import org.olr.nonadmin.QuestionFile
-import org.olr.nonadmin.PlayerFile
+
 import grails.plugin.springsecurity.SpringSecurityService
 
 class StartGameController {
@@ -16,13 +14,13 @@ class StartGameController {
 
         def user = springSecurityService.currentUser
         def params = [max: 1000, offset: 0, ownerId: user.id]
-        def questionFileList = ownerFileService.questionListByOwner(params)
+        def questionFileList = ownerFileService.questionFileListByOwner(params)
         questionFileList.each{ row ->
             def desc = jsonFieldService.getField(row.questionsJson, 'description')
             // KLUDGE - replace the file with just the description field
             row.questionsJson = desc
         }
-        def playerFileList = ownerFileService.playerListByOwner(params);
+        def playerFileList = ownerFileService.playerFileListByOwner(params);
         playerFileList.each{ row ->
             def desc = jsonFieldService.getField(row.playersJson, 'description')
             // KLUDGE - replace the file with just the description field
