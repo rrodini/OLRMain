@@ -3,7 +3,7 @@
     <%-- meta name="layout" content="main" /--%>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-    <title>section Game Type</title>
+    <title>Start Game</title>
     <asset:stylesheet src="jquery.bootgrid.css"/>
     <asset:stylesheet src="jquery.steps.css"/>
     <asset:stylesheet src="bootstrap.css"/>
@@ -129,9 +129,9 @@ var urlGameEmcee = "${urlGameEmcee.encodeAsRaw()}";
 
     function initGrid(which) {
         $(which).bootgrid({
-            navigation : 2, // 0=>none,1=>header(search),2=>footer(pagination),3=>both
-            rowCount : [ 5, 10, 50, 75 ] // first # is count of rows displayed, others are irrelevant.
-                                         // WARNING: if too many rows are displayed, the pagination widget disappears!
+            navigation : 3, // 0=>none,1=>header(search),2=>footer(pagination),3=>both
+            rowCount : [ 5] // first # is count of rows displayed, others are irrelevant.
+                                // WARNING: if too many rows are displayed, the pagination widget disappears!
         });
 
     }
