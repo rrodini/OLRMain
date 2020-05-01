@@ -28,7 +28,7 @@
    </li>
    <li>
        <p>
-       The player devices must be able to connect to the game url which is different from the emcee url.  If the device
+       The player devices must be able to connect to the game url which is <b>different</b> from the emcee url.  If the device
        is school property, the connection probably goes through a proxy server which may disallow the player url.
        You should contact the network administrator and get the player url white-listed so the connection is allowed.
            <b>A tell-tale indicator of this problem is that the player is never asked to enter the room #.</b>

@@ -6,13 +6,19 @@ class HtmlController {
         // By convention aboutUs.gsp will be rendered
     }
 
-    def constructAPlayerFile() {
-        // By convention contructAPlayerFile.gsp will be rendered
+    def constructABulkPlayerFile() {
+        // By convention contructABulkPlayerFile.gsp will be rendered
+    }
+
+    def constructABulkQuestionFile() {
+    }
+
+    def constructAQuestion() {
     }
 
     def constructAQuestionFile() {
     }
-
+//  That's Gotchas
     def gotchas() {
     }
 

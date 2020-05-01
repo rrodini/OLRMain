@@ -6,7 +6,7 @@ import spock.lang.Specification
 import org.hibernate.SessionFactory
 
 //@Integration
-@Rollback
+//@Rollback
 class QuestionFileServiceSpec extends Specification {
 
     QuestionFileService questionFileService

@@ -1,1 +1,4 @@
-span {color: white}
+.login-name {
+    color: white;
+    font-size:18px;
+}

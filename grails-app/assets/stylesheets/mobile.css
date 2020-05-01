@@ -71,6 +71,15 @@
         width: auto;
     }
 
+    /* added to truncate long text in questions. */
+    .fieldcontain .property-value-truncate {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 15ch;
+    }
+
     .errors ul,
     .message p {
         margin: 0.5em;

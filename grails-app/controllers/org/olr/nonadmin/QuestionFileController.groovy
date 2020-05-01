@@ -28,8 +28,8 @@ class QuestionFileController {
             questionFileCount = questionFileService.count()
         } else {
             params.ownerId = user.id
-            rowList = ownerFileService.questionListByOwner(params)
-            questionFileCount = ownerFileService.questionListByOwnerCount(params)
+            rowList = ownerFileService.questionFileListByOwner(params)
+            questionFileCount = ownerFileService.questionFileListByOwnerCount(params)
         }
         // KLUDGE - but so be it.
         rowList.each{ row ->

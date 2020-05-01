@@ -82,14 +82,18 @@
         <ul>
             <li><g:link controller="html" action="roles">Roles in a game</g:link></li>
             <li><g:link controller="html" action="playAGame">How to play a game</g:link></li>
-            <li><g:link controller="html" action="constructAPlayerFile">How to construct a player file</g:link></li>
-            <li><g:link controller="html" action="constructAQuestionFile">How to construct a question file</g:link></li>
+            <li><g:link controller="html" action="constructAQuestion">How to construct a Question</g:link></li>
+            <li><g:link controller="html" action="constructAQuestionFile">How to construct a Question File</g:link></li>
+            <li><g:link controller="html" action="constructABulkQuestionFile">How to load a bulk Question File</g:link></li>
+            <li><g:link controller="html" action="constructABulkPlayerFile">How to load a bulk Player File</g:link></li>
             <li><g:link controller="html" action="gotchas">Gotchas (PLEASE READ)</g:link></li>
         </ul>
         <h1>My Stuff (+publik)</h1>
         <ul>
-            <li><g:link controller="questionFile" action="index">Question files</g:link></li>
-            <li><g:link controller="playerFile" action="index">Player files</g:link></li>
+            <li><g:link controller="question" action="index">Questions</g:link></li>
+            <li><g:link controller="questionList" action="index">Build a Question File</g:link></li>
+            <li><g:link controller="questionFile" action="index">Question Files</g:link></li>
+            <li><g:link controller="playerFile" action="index">Player Files</g:link></li>
             <li><g:link controller="game" action="index?max=10">Past games</g:link></li>
         </ul>
     </div>

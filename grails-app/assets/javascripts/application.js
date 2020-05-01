@@ -19,3 +19,16 @@ if (typeof jQuery !== 'undefined') {
         });
     })(jQuery);
 }
+
+function addToolTips(tooltips) {
+    for (const property in tooltips) {
+        let selector = `#${property}`
+        let tip = `${tooltips[property]}`
+        $(selector).attr("data-toggle", "tooltip");
+        $(selector).attr("title", tip);
+    }
+}
+
+$(document).ready(function() {
+    $('[data-toggle="tooltip"]').tooltip();
+})

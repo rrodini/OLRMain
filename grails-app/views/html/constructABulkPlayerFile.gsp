@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="layout" content="main" />
-    <title>How to construct a player file</title>
+    <title>How to load a bulk player file</title>
 </head>
 
 <body>

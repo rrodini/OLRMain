@@ -27,8 +27,8 @@ class PlayerFileController {
             playerFileCount = playerFileService.count()
         } else {
             params.ownerId = user.id
-            rowList = ownerFileService.playerListByOwner(params)
-            playerFileCount = ownerFileService.playerListByOwnerCount(params)
+            rowList = ownerFileService.playerFileListByOwner(params)
+            playerFileCount = ownerFileService.playerFileListByOwnerCount(params)
         }
         // KLUDGE - but so be it.
         rowList.each{ row ->

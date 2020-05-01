@@ -9,7 +9,7 @@
         <g:link controller="register">Sign up</g:link>
     </sec:ifNotLoggedIn>
     <sec:ifLoggedIn >
-        <span style="font-size:18px" >
+        <span class="login-name"  >
         <sec:username />
         </span>
         <span>|</span>

@@ -214,6 +214,15 @@ fieldset,
     margin-left: 27%;
 }
 
+/* added to truncate long text in questions. */
+.fieldcontain .property-value-truncate {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 40ch;
+}
+
 label {
     cursor: pointer;
     display: inline-block;
