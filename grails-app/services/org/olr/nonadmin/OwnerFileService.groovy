@@ -1,14 +1,16 @@
 package org.olr.nonadmin
 
 // OwnerFileService - similar to GORM services, but with special semantics.
+// Special semantics:
+// - where owner_id = ? or publik = ?
+// - order by id
 class OwnerFileService {
 //TODO: refactor this code using DRY principles.
     // playerFileService.list() is for admin.
     // playerlistByOwner() is for users.
     def playerFileListByOwner(params) {
-        //params.offset = params.offset?: params.max;
-        def rowList = PlayerFile.executeQuery("from PlayerFile where owner_id = ? or publik = ?",
-                [params.ownerId, true], [offset: params.offset, max: params.max])
+        def rowList = PlayerFile.executeQuery("from PlayerFile where owner_id = ? or publik = ? order by id",
+                [params.ownerId, true], [offset: params.offset, max: params.max, sort: "id"])
         return rowList
     }
 
@@ -21,8 +23,9 @@ class OwnerFileService {
     // questionFileService.list() is for admin.
     // questionlistByOwner() is for users.
     def questionFileListByOwner(params) {
-        //params.offset = params.offset?: params.max;
-        def rowList = QuestionFile.executeQuery("from QuestionFile where owner_id = ? or publik = ?",
+//  Below is he original without ordering.
+//        def rowList = QuestionFile.executeQuery("from QuestionFile where owner_id = ? or publik = ?",
+        def rowList = QuestionFile.executeQuery("from QuestionFile where owner_id = ? or publik = ? order by id",
                 [params.ownerId, true], [offset: params.offset, max: params.max])
         return rowList
     }
@@ -35,7 +38,7 @@ class OwnerFileService {
 
     def questionListByOwner(params) {
         //params.offset = params.offset?: params.max;
-        def rowList = Question.executeQuery("from Question where owner_id = ?",
+        def rowList = Question.executeQuery("from Question where owner_id = ? order by id",
                 [params.ownerId], [offset: params.offset, max: params.max])
         return rowList
     }
@@ -48,7 +51,7 @@ class OwnerFileService {
 
     def gameListByOwner(params) {
         //params.offset = params.offset?: params.max;
-        def rowList = Game.executeQuery("from Game where emcee_id = ?",
+        def rowList = Game.executeQuery("from Game where emcee_id = ? order by id",
                 [params.ownerId], [offset: params.offset, max: params.max])
         return rowList
     }

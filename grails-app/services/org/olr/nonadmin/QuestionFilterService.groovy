@@ -58,7 +58,7 @@ class QuestionFilterService {
 //        def rowList = Question.executeQuery(query,
 //                [params.ownerId], [offset: params.offset, max: params.max])
         String query = "from Question where owner_id = ${params.ownerId}" + conditions + "order by id ASC"
-        println query
+//        println query
         def rowList = Question.executeQuery(query,
                  [offset: params.offset, max: params.max])
         // more params to be processed into and conditions

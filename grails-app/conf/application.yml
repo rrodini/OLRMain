@@ -89,7 +89,7 @@ grails:
     cors:
         enabled: true
     reload:
-        enabled: true
+        enabled: false
 endpoints:
     jmx:
         unique-names: true

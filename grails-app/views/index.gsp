@@ -98,8 +98,8 @@
         </ul>
     </div>
 </sec:ifLoggedIn>
-    <div id="content" role="main">
-        <section class="row colset-2-its">
+    <div id="content" role="main" >
+        <section class="row" >
             <h1>Welcome to Open Lightning Round</h1>
             <sec:ifAnyGranted roles='ROLE_ADMIN,ROLE_USER' >
             <div align="center">
@@ -113,6 +113,8 @@
             </sec:ifAnyGranted>
         </section>
     </div>
-
+<sec:ifNotLoggedIn >
+    <g:img src="olr_class.svg"  style="display: block;  margin-left: auto; margin-right: auto; width: 75%"></g:img>
+</sec:ifNotLoggedIn>
 </body>
 </html>
