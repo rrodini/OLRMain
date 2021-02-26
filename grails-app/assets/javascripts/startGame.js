@@ -24,13 +24,14 @@ function startGame() {
             location.href = urlGameEmcee + '?gameId=' + gameId;
         },
         failure: function(jqXHR, errMsg, errorThrown) {
+            console.log(errMsg);
         }
     })
     .done (function() {
         console.log('post to node app successful');
     })
     .fail(function(){
-        console.log("post to node app failed")
+        console.log("post to node app failed");
     });
 
 
