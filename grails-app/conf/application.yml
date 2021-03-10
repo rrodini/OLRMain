@@ -23,17 +23,23 @@ info:
         version: '@info.app.version@'
         grailsVersion: '@info.app.grailsVersion@'
 spring:
+    jmx:
+        unique-names: true
     main:
         banner-mode: "off"
     groovy:
         template:
             check-template-location: false
-
+    devtools:
+        restart:
+            exclude:
+                - grails-app/views/**
+                - grails-app/i18n/**
+                - grails-app/conf/**
 # Spring Actuator Endpoints are Disabled by Default
-endpoints:
-    enabled: false
-    jmx:
-        enabled: true
+management:
+    endpoints:
+        enabled-by-default: false
 ---
 grails:
     mime:
@@ -89,7 +95,7 @@ grails:
     cors:
         enabled: true
     reload:
-        enabled: false
+        enabled: true
 endpoints:
     jmx:
         unique-names: true
@@ -112,7 +118,7 @@ hibernate:
 environments:
     development:
         dataSource:
-# original uses in memeory H2 database
+# original uses in memory H2 database
 #            dbCreate: create-drop
 #            url: jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
 # use POSTGRESQL
@@ -178,4 +184,3 @@ olr:
 server:
 #   port: ${PORT} doesn't work!  PORT value treated as string!!!
     port: 8080
-    session.timeout: 36000

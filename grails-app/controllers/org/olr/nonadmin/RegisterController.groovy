@@ -149,28 +149,31 @@ class RegisterController  extends grails.plugin.springsecurity.ui.RegisterContro
             }
         }
         // new entry point
-//        def update(ProfileCommand cmd) {
-//            if (cmd.hasErrors()) {
-//                respond cmd, view: "edit"
-//            }
-//            def username = cmd.username
-//            User user = User.findByUsername(username)
-//            // TODO: error handling code here
-//            user.version = cmd.version
-//            user.email = cmd.email
-//            user.password = cmd.password
-//            user.firstName = cmd.firstName
-//            user.lastName = cmd.lastName
-//            user.org = cmd.org
-//            user.orgAddress = cmd.orgAddress
-//            user.orgCity = cmd.orgCity
-//            user.orgState = cmd.orgState
-//            user.orgZip = cmd.orgZip
-//            if (!user.save(flush: true)) {
-//                // TODDO: what to do here?
-//            }
-//            redirect uri:"/"
-//        }
+        def update(ProfileCommand cmd) {
+println "RegisterController: update"
+println "updating ${cmd.username}"
+            if (cmd.hasErrors()) {
+                respond cmd, view: "edit"
+            }
+            def username = cmd.username
+            User user = User.findByUsername(username)
+            // TODO: error handling code here
+            user.version = cmd.version
+            user.email = cmd.email
+            user.password = cmd.password
+            user.firstName = cmd.firstName
+            user.lastName = cmd.lastName
+            user.org = cmd.org
+            user.orgAddress = cmd.orgAddress
+            user.orgCity = cmd.orgCity
+            user.orgState = cmd.orgState
+            user.orgZip = cmd.orgZip
+            // 3/9/2021 surrounded by transaction to avoid error
+            org.olr.admin.User.withTransaction {
+                user.save(flush: true)
+            }
+            redirect uri:"/"
+        }
 
         protected void redirectVerifyRegistration(def rtn) {
             if (rtn?.flashmsg) {

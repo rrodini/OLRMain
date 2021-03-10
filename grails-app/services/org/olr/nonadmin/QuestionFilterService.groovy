@@ -41,7 +41,7 @@ class QuestionFilterService {
         //showParams(params)
         String conditions = filterConditions(params)
         //println "conditions: ${conditions}"
-        String query = "select count(*) from Question where owner_id = ? " + conditions
+        String query = "select count(*) from Question where owner_id = ?0 " + conditions
         //println "query: ${query}"
         def count = Question.executeQuery(query,
                 [params.ownerId])
