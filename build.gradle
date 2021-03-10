@@ -88,7 +88,7 @@ dependencies {
     testRuntime "net.sourceforge.htmlunit:htmlunit:2.18"
 //  needed for Heroku deployment - contains tomcat so be careful of Tomcat version!
 //  Remove below since tomcat is embedded in spring boot
-//    compile 'com.github.jsimone:webapp-runner:8.5.11.3'
+    compile 'com.heroku:webapp-runner:9.0.41.0'
 //  Grails 3 SSL plug - force use of HTTPS
 //    compile 'com.bertramlabs.plugins:force-ssl:3.1.1'
 }
