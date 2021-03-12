@@ -77,13 +77,13 @@ dependencies {
     testCompile "org.mockito:mockito-core"
     testCompile "org.grails:grails-gorm-testing-support"
     testCompile "org.grails.plugins:geb"
-    testRuntime "org.seleniumhq.selenium:selenium-chrome-driver:$seleniumVersion"
-    testRuntime "org.seleniumhq.selenium:selenium-firefox-driver:$seleniumVersion"
-    testRuntime "org.seleniumhq.selenium:selenium-safari-driver:$seleniumSafariDriverVersion"
-
-    testCompile "org.seleniumhq.selenium:selenium-remote-driver:$seleniumVersion"
-    testCompile "org.seleniumhq.selenium:selenium-api:$seleniumVersion"
-    testCompile "org.seleniumhq.selenium:selenium-support:$seleniumVersion"
+//    testRuntime "org.seleniumhq.selenium:selenium-chrome-driver:$seleniumVersion"
+//    testRuntime "org.seleniumhq.selenium:selenium-firefox-driver:$seleniumVersion"
+//    testRuntime "org.seleniumhq.selenium:selenium-safari-driver:$seleniumSafariDriverVersion"
+//
+//    testCompile "org.seleniumhq.selenium:selenium-remote-driver:$seleniumVersion"
+//    testCompile "org.seleniumhq.selenium:selenium-api:$seleniumVersion"
+//    testCompile "org.seleniumhq.selenium:selenium-support:$seleniumVersion"
     testCompile "org.grails:grails-web-testing-support"
     testRuntime "net.sourceforge.htmlunit:htmlunit:2.18"
 //  needed for Heroku deployment - contains tomcat so be careful of Tomcat version!
@@ -118,6 +118,7 @@ assets {
 task stage() {
     dependsOn clean, war
 }
+war.mustRunAfter clean
 
 tasks.stage.doLast() {
     delete fileTree(dir: "build/distributions")
@@ -126,10 +127,10 @@ tasks.stage.doLast() {
     delete fileTree(dir: "build/libs", exclude: "*.war")
 }
 
-webdriverBinaries {
-    chromedriver "$chromeDriverVersion"
-    geckodriver "$geckodriverVersion"
-}
+//webdriverBinaries {
+//    chromedriver "$chromeDriverVersion"
+//    geckodriver "$geckodriverVersion"
+//}
 
 tasks.withType(GroovyCompile) {
     configure(groovyOptions) {
@@ -144,8 +145,6 @@ tasks.withType(Test) {
     systemProperty "webdriver.gecko.driver", System.getProperty('webdriver.gecko.driver')
 }
 
-war.mustRunAfter clean
-
 task copyToLib(type: Copy) {
     into "$buildDir/server"
     from(configurations.compile) {
@@ -154,3 +153,7 @@ task copyToLib(type: Copy) {
 }
 
 stage.dependsOn(copyToLib)
+
+war {
+    enabled=true
+}
