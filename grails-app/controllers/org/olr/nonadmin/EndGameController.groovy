@@ -20,8 +20,10 @@ class EndGameController {
         // compute seconds
         def duration = ((int) (endTime.getTime() - startTime.getTime())).intdiv(1000)
         println "update game set endTime = ${endTime}, questionCount = ${questionCount} where id = ${gameId}"
-        Game.executeUpdate("update Game set endTime = :endTime, duration = :duration, questionCount = :questionCount where id = :gameId",
-            [endTime: endTime, duration: duration, questionCount: questionCount, gameId: gameId])
+        org.olr.nonadmin.Game.withTransaction {
+            Game.executeUpdate("update Game set endTime = :endTime, duration = :duration, questionCount = :questionCount where id = :gameId",
+                    [endTime: endTime, duration: duration, questionCount: questionCount, gameId: gameId])
+        }
         println "Game record updated."
         render(text:"", status:200)
     }
