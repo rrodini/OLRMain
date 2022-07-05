@@ -154,7 +154,7 @@ environments:
             url: "${JDBC_URL}"                       # ?...user=abc&password=xyz
             driverClassName: "org.postgresql.Driver"
             dialect: org.hibernate.PostgreSQLDialect
-            # values are embedded in the DATABASE_URL
+            # values are embedded in the JDBC_URL
             # username: ${DB_USERNAME}                     # POSTGRES db username (app id)
             # password: ${DB_PASSWORD}                     # POSTGRES db password
         # CORS url values below
