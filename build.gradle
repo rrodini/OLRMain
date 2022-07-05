@@ -94,8 +94,9 @@ dependencies {
 //  needed for Heroku deployment - be careful of Tomcat version!
 //  new version of webapp-runner gives error at runtime
 // DEV   compile 'com.heroku:webapp-runner:9.0.41.0'
+
 // PRD    compile 'com.github.jsimone:webapp-runner:8.5.11.3'
-    compile 'com.github.jsimone:webapp-runner:8.5.11.3'
+//    compile 'com.github.jsimone:webapp-runner:8.5.11.3'
 //  Grails 3 SSL plug - force use of HTTPS
 //    compile 'com.bertramlabs.plugins:force-ssl:3.1.1'
 }
