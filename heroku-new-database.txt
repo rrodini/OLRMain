@@ -1,0 +1,5 @@
+DATABASE_URL (01/26/2023)
+postgres://grcenxioszwcfl:f48760d329a5dd2fe41251006e74adbb5e34d83254f9ee6562f854b824e7bb3f@ec2-3-211-221-185.compute-1.amazonaws.com:5432/deqda0tgd9e0oh
+           <-- owner  --> <--  password                                                --> <--    server                         --> <--> <- database ->
+JDBC_URL (01/26/2023)
+jdbc:postgresql://ec2-3-211-221-185.compute-1.amazonaws.com:5432/deqda0tgd9e0oh?password=f48760d329a5dd2fe41251006e74adbb5e34d83254f9ee6562f854b824e7bb3f&sslmode=require&user=grcenxioszwcfl
