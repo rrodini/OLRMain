@@ -157,7 +157,7 @@ tasks.withType(Test) {
 
 task copyToLib(type: Copy) {
     into "$buildDir/server"
-    from(configurations.implementation) {
+    from(configurations.runtimeClasspath) {
         include "webapp-runner*"
     }
 }
