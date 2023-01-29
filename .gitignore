@@ -11,3 +11,4 @@ build/
 .classpath
 src/DEV.env
 .git/
+heroku-new-database.txt
