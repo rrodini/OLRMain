@@ -126,7 +126,7 @@ assets {
 //}
 
 task stage() {
-    dependsOn clean, assemble   //  assemble replaces war
+    dependsOn clean, assemble   //  'assemble' replaces 'war'
 }
 war.mustRunAfter clean
 
@@ -155,15 +155,15 @@ tasks.withType(Test) {
     systemProperty "webdriver.gecko.driver", System.getProperty('webdriver.gecko.driver')
 }
 
-task copyToLib(type: Copy) {
-    into "$buildDir/server"
-    from(configurations.runtimeClasspath) {
-        include "webapp-runner*"
-    }
-}
+//task copyToLib(type: Copy) {
+//    into "$buildDir/server"
+//    from(configurations.runtimeClasspath) {
+//        include "webapp-runner*"
+//    }
+//}
+//
+//stage.dependsOn(copyToLib)
 
-stage.dependsOn(copyToLib)
-
-war {
-    enabled=true
-}
+//war {
+//    enabled=true
+//}
