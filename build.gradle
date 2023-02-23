@@ -95,7 +95,7 @@ dependencies {
     testRuntimeOnly "org.seleniumhq.selenium:selenium-firefox-driver:3.14.0"
 //  needed for Heroku deployment - be careful of Tomcat version!
 //  new version of webapp-runner gives error at runtime
-// DEV   implementation 'com.heroku:webapp-runner:9.0.41.0'
+// DEV
     implementation 'com.heroku:webapp-runner:9.0.70.0'  // new 9.0.70.0 old 9.0.41.0
 // PRD    implementation 'com.github.jsimone:webapp-runner:8.5.11.3'
 //    implementation 'com.github.jsimone:webapp-runner:8.5.11.3'
@@ -155,14 +155,14 @@ tasks.withType(Test) {
     systemProperty "webdriver.gecko.driver", System.getProperty('webdriver.gecko.driver')
 }
 
-//task copyToLib(type: Copy) {
-//    into "$buildDir/server"
-//    from(configurations.runtimeClasspath) {
-//        include "webapp-runner*"
-//    }
-//}
-//
-//stage.dependsOn(copyToLib)
+task copyToLib(type: Copy) {
+    into "$buildDir/server"
+    from(configurations.runtimeClasspath) {
+        include "webapp-runner*"
+    }
+}
+
+stage.dependsOn(copyToLib)
 
 //war {
 //    enabled=true
