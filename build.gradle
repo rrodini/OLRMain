@@ -127,7 +127,7 @@ assets {
 //}
 
 task stage() {
-    dependsOn clean, assemble   //  'assemble' replaces 'war'
+    dependsOn assemble   //  'assemble' replaces 'war', deleted 'clean' e.g. dependsOn clean,assemble
 }
 //war.mustRunAfter clean
 
