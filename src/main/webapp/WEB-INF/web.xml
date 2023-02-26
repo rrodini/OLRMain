@@ -4,5 +4,9 @@
 
 <web-app>
     <display-name>Archetype Created Web Application</display-name>
-    <absolute-ordering/>
+<!--
+    <absolute-ordering>
+      <name>org_apache_jasper</name>
+    </absolute-ordering>
+-->
 </web-app>

@@ -34,13 +34,14 @@ configurations {
 dependencies {
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     compileOnly "io.micronaut:micronaut-inject-groovy"
+    console "org.grails:grails-console"
     implementation "org.springframework.boot:spring-boot-starter-logging"
     implementation "org.springframework.boot:spring-boot-starter-validation"
     implementation "org.springframework.boot:spring-boot-autoconfigure"
     implementation "org.grails:grails-core"
     implementation "org.springframework.boot:spring-boot-starter-actuator"
-//  1/28/2023 changed from 'provided' to 'runtimeOnly'
-//    runtimeOnly "org.springframework.boot:spring-boot-starter-tomcat"
+//  DELETED 2/25/2023
+//    implementation "org.springframework.boot:spring-boot-starter-tomcat"
     implementation "org.grails:grails-web-boot"
     implementation "org.grails:grails-logging"
     implementation "org.grails:grails-plugin-rest"
@@ -59,10 +60,10 @@ dependencies {
     implementation "org.grails.plugins:spring-security-core:5.2.0"
     implementation 'org.grails.plugins:spring-security-ui:4.0.0-RC1'
     // end of new plugins
-    implementation "org.grails.plugins:gsp"
+//  DELETED 2/25/2023
+//  implementation "org.grails.plugins:gsp"
     // below taken from sample Grails4App
     compileOnly "io.micronaut:micronaut-inject-groovy"
-    console "org.grails:grails-console"
     profile "org.grails.profiles:web"
 //  json validation jars
     implementation "org.leadpony.justify:justify:3.1.0"   // new 3.1.0 old 0.17.0
@@ -95,8 +96,8 @@ dependencies {
     testRuntimeOnly "org.seleniumhq.selenium:selenium-firefox-driver:3.14.0"
 //  needed for Heroku deployment - be careful of Tomcat version!
 //  new version of webapp-runner gives error at runtime
-// DEV
-    implementation 'com.heroku:webapp-runner:9.0.70.0'  // new 9.0.70.0 old 9.0.41.0
+//  ATTENTION: webapp-runner cantains two tomcats!!!!
+//    implementation 'com.heroku:webapp-runner:9.0.68.0'
 // PRD    implementation 'com.github.jsimone:webapp-runner:8.5.11.3'
 //    implementation 'com.github.jsimone:webapp-runner:8.5.11.3'
 //  Grails 3 SSL plug - force use of HTTPS
@@ -128,14 +129,14 @@ assets {
 task stage() {
     dependsOn clean, assemble   //  'assemble' replaces 'war'
 }
-war.mustRunAfter clean
+//war.mustRunAfter clean
 
-tasks.stage.doLast() {
-    delete fileTree(dir: "build/distributions")
-    delete fileTree(dir: "build/assetCompile")
-    delete fileTree(dir: "build/distributions")
-    delete fileTree(dir: "build/libs", exclude: "*.war")
-}
+//tasks.stage.doLast() {
+//    delete fileTree(dir: "build/distributions")
+//    delete fileTree(dir: "build/assetCompile")
+//    delete fileTree(dir: "build/distributions")
+//    delete fileTree(dir: "build/libs", exclude: "*.war")
+//}
 
 //webdriverBinaries {
 //    chromedriver "$chromeDriverVersion"
@@ -155,12 +156,12 @@ tasks.withType(Test) {
     systemProperty "webdriver.gecko.driver", System.getProperty('webdriver.gecko.driver')
 }
 
-task copyToLib(type: Copy) {
-    into "$buildDir/server"
-    from(configurations.runtimeClasspath) {
-        include "webapp-runner*"
-    }
-}
+//task copyToLib(type: Copy) {
+//    into "$buildDir/server"
+//    from(configurations.runtimeClasspath) {
+//        include "webapp-runner*"
+//    }
+//}
 
 stage.dependsOn(copyToLib)
 
