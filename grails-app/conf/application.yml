@@ -182,5 +182,6 @@ olr:
         password: ${OLR_USER_PASSWORD}     # OLR Main user password
 ---
 server:
-#   port: ${PORT} doesn't work!  PORT value treated as string!!!
-    port: 8080
+# UNDER INVESTIGATION
+#    port: ${PORT} doesn't work!  PORT value treated as string!!!
+   port: 8080

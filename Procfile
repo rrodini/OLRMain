@@ -1,1 +1,1 @@
-web: cd build; java $JAVA_OPTS -Dgrails.env=prod  -jar libs/OLRMain-1.3.0.war --port $PORT
+web: cd build; java $JAVA_OPTS -Dgrails.env=prod  -Dgrails.server.port=443 -jar libs/OLRMain-1.3.0.war --port $PORT
