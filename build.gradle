@@ -40,8 +40,8 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-autoconfigure"
     implementation "org.grails:grails-core"
     implementation "org.springframework.boot:spring-boot-starter-actuator"
-//  DELETED 2/25/2023
-//    implementation "org.springframework.boot:spring-boot-starter-tomcat"
+//  UNDER ANALYSIS
+    implementation "org.springframework.boot:spring-boot-starter-tomcat"
     implementation "org.grails:grails-web-boot"
     implementation "org.grails:grails-logging"
     implementation "org.grails:grails-plugin-rest"
@@ -96,7 +96,7 @@ dependencies {
     testRuntimeOnly "org.seleniumhq.selenium:selenium-firefox-driver:3.14.0"
 //  needed for Heroku deployment - be careful of Tomcat version!
 //  new version of webapp-runner gives error at runtime
-//  ATTENTION: webapp-runner cantains two tomcats!!!!
+//  UNDER ANALYSIS
 //    implementation 'com.heroku:webapp-runner:9.0.68.0'
 // PRD    implementation 'com.github.jsimone:webapp-runner:8.5.11.3'
 //    implementation 'com.github.jsimone:webapp-runner:8.5.11.3'
@@ -127,7 +127,7 @@ assets {
 //}
 
 task stage() {
-    dependsOn assemble   //  'assemble' replaces 'war', deleted 'clean' e.g. dependsOn clean,assemble
+    dependsOn assemble   //  UNDER ANALYSIS
 }
 //war.mustRunAfter clean
 
