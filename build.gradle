@@ -101,7 +101,7 @@ dependencies {
 // PRD    implementation 'com.github.jsimone:webapp-runner:8.5.11.3'
 //    implementation 'com.github.jsimone:webapp-runner:8.5.11.3'
 //  Grails 3 SSL plug - force use of HTTPS
-    implementation 'com.bertramlabs.plugins:force-ssl:5.0.1'
+    implementation 'com.bertramlabs.plugins:grails-force-ssl:5.0.1'
 }
 
 bootRun {
