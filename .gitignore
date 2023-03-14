@@ -13,3 +13,4 @@ src/DEV.env
 .git/
 heroku-new-database.txt
 PreviouProcFile
+/src/main/java/org/olr/nonadmin/GameTypeEnum.class
