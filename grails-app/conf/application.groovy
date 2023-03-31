@@ -26,9 +26,13 @@ grails.plugin.springsecurity.roleHierarchy = '''
 // logout following new user registration
 grails.plugin.springsecurity.ui.register.postRegisterUrl = '/logout'
 // no email validation during registration
-grails.plugin.springsecurity.ui.register.requireEmailValidation = false
+grails.plugin.springsecurity.ui.register.requireEmailValidation = true
 // no email to reset (change) password
 grails.plugin.springsecurity.ui.register.requireForgotPassEmailValidation = false
+grails.plugin.springsecurity.ui.register.emailBody = ""
+grails.plugin.springsecurity.ui.register.emaiFrom = ""
+grails.plugin.springsecurity.ui.register.emailSubject = ""
+
 // default if staticRules which requires controller annotations
 //  changed to InterceptMap for "declarative" security
 grails.plugin.springsecurity.securityConfigType = "InterceptUrlMap"

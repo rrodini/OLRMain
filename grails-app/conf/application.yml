@@ -185,3 +185,7 @@ server:
 # UNDER INVESTIGATION
 #    port: ${PORT} doesn't work!  PORT value treated as string!!!
    port: 8080
+---
+logging:
+    level:
+        root: ${LOG_LEVEL}  # as per LOG_LEVEL env variable
