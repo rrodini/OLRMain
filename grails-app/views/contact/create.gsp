@@ -32,7 +32,7 @@
                     <f:all bean="contact" except="owner" />
                 </fieldset>
                 <fieldset class="buttons">
-                    <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" onclick = "goit()" />
+                    <g:submitButton name="create" class="save" value="Send" onclick = "goit()" />
                 </fieldset>
             </g:form>
         </div>

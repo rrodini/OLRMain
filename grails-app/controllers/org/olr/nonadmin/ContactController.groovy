@@ -1,5 +1,6 @@
 package org.olr.nonadmin
 
+import grails.core.GrailsApplication
 import grails.plugin.springsecurity.SpringSecurityService
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
@@ -8,6 +9,7 @@ class ContactController {
 
     ContactService contactService
     SpringSecurityService springSecurityService
+    def mailService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -28,11 +30,24 @@ class ContactController {
 
     def save(Contact contact) {
         def user = springSecurityService.currentUser
+        String admin = grailsApplication.config.getProperty('grails.mail.username')
+
+//        println "Send mail credentials:"
+//        println admin
+
         // this is the user submitting the contact
         contact.owner = user
         if (contact == null) {
             notFound()
             return
+        }
+
+        // closure here, not method parameters
+        mailService.sendMail {
+            to admin
+            from admin
+            subject "OLR Contact"
+            text "from: ${contact.owner.email}\nsubject: ${contact.subject}\ntext: ${contact.feedback}"
         }
 
         try {

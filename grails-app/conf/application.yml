@@ -11,6 +11,14 @@ grails:
             # Whether to translate GORM events into Reactor events
             # Disabled by default for performance reasons
             events: false
+    mail:
+        host: "smtp.ionos.com"                               # "smtp-mail.outlook.com"
+        port: 587
+        username: ${OLR_EMAIL_ADDRESS}        # email account at IONOS
+        password: ${OLR_EMAIL_PASSWORD}       # email password at IONOS
+        props:
+            mail.smtp.starttls.enable: true
+            mail.smtp.port: 587
 # force use of HTTPS (except development)
 #    plugin:
 #        forceSSL:

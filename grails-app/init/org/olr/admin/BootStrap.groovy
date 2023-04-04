@@ -21,6 +21,7 @@ class BootStrap {
         println "LOG_LEVEL: ${System.getenv('LOG_LEVEL')}"
         println "PORT: ${System.getenv('PORT')}"
         println "OLR_USER_USERNAME: ${System.getenv('OLR_USER_USERNAME')}"
+        println "OLR_EMAIL_ADDRESS: ${System.getenv('OLR_EMAIL_ADDRESS')}"
         // tomcat - expect 'null' in development
         println  "tomcat: ${grailsApplication.config.getProperty('server.tomcat.remote-ip-header')}"
         println  "tomcat: ${grailsApplication.config.getProperty('server.tomcat.protocol-header')}"

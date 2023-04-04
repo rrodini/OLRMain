@@ -61,9 +61,8 @@ dependencies {
     //  added  security plugin added June 4, 2019
     implementation "org.grails.plugins:spring-security-core:5.2.0"
     implementation 'org.grails.plugins:spring-security-ui:4.0.0-RC1'
-    // end of new plugins
-//  DELETED 2/25/2023
-//  implementation "org.grails.plugins:gsp"
+    //  added mail plugin 3/31/2023
+    implementation "org.grails.plugins:mail:3.0.0"
     // below taken from sample Grails4App
     profile "org.grails.profiles:web"
 //  json validation jars
