@@ -2,7 +2,7 @@ package org.olr.nonadmin
 
 import grails.plugin.springsecurity.SpringSecurityService
 import grails.plugin.springsecurity.SpringSecurityUtils
-import org.olr.nonadmin.GameTypeEnum
+import org.olr.nonadmin.GameType
 import org.olr.admin.User
 
 class GameController {
@@ -20,7 +20,7 @@ class GameController {
             println("Game Summary error: game record ${params.id} not found.")
             response.sendError(404)
         }
-        def gameTypeName = GameTypeEnum.PR.getLongNameFromNumber(game.gameType)
+        def gameTypeName = GameType.PR.getLongNameFromNumber(game.gameType)
         def emcee = User.findById(game.emcee.id)
         def emceeName = emcee? emcee.toString() : "Unknown emcee"
  //       [game: game]
