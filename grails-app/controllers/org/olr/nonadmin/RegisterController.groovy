@@ -16,9 +16,6 @@ import org.springframework.context.MessageSource
 import org.springframework.context.i18n.LocaleContextHolder
 import org.olr.admin.User
 
-//import grails.plugin.springsecurity.ui.RegisterCommand
-import org.olr.nonadmin.RegisterCommand
-
 class RegisterController  extends grails.plugin.springsecurity.ui.RegisterController {
     /* Copyright 2009-2016 the original author or authors.
  *
@@ -83,7 +80,7 @@ class RegisterController  extends grails.plugin.springsecurity.ui.RegisterContro
                     email: registerCommand.email,
                     username: registerCommand.username,
                     password: registerCommand.password,
-                    accountLocked: false,
+                    accountLocked: true,  // Account locked until email with registration link is clicked.
                     enabled: true,
                     firstName: registerCommand.firstName,
                     lastName: registerCommand.lastName,
@@ -108,72 +105,60 @@ class RegisterController  extends grails.plugin.springsecurity.ui.RegisterContro
                 sendVerifyRegistrationMail registrationCode, user, registerCommand.email
                 [emailSent: true, registerCommand: registerCommand]
             } else {
-                 def rtn = uiRegistrationCodeStrategy.verifyRegistration(registrationCode.token)
-//                All attempts below to refresh the new user's role (goal ROLE_USER) have failed
-//                So the postRegisterUrl is set to 'logout'.  Not the best experience but it works.
-//                // ATTENTION: returns null
-//                def auth1 = springSecurityService.reauthenticate(user.username, passwordPlainText)
-//                // Force retrieval of Authentication object to set ROLE_USER
-//                auth1 = springSecurityService.getAuthentication()
-//                def principal = auth1.principal
-//                boolean authenticated = auth1.authenticated
-//                def roles = auth1.authorities
-//                // force logout of user w/o ROLE_USER
-//                auth1.setAuthenticated(false);
                 redirectVerifyRegistration(rtn);
             }
         }
         // new entry point
-        def edit() {
-            User user = null
-            if (springSecurityService.isLoggedIn()) {
-                user = springSecurityService.getCurrentUser()
-                def profileCommand = new ProfileCommand(
-                    version: user.version,
-                    email: user.email,
-                    username: user.username,
-                    password: user.password,
-                    password2: user.password,
-                    firstName: user.firstName,
-                    lastName: user.lastName,
-                    org: user.org,
-                    orgAddress: user.orgAddress,
-                    orgCity: user.orgCity,
-                    orgState: user.orgState,
-                    orgZip: user.orgZip,
-                )
-
-                respond profileCommand, view: "edit"
-            } else {
-                redirect uri: '/'
-            }
-        }
-        // new entry point
-        def update(ProfileCommand cmd) {
-println "RegisterController: update"
-println "updating ${cmd.username}"
-            if (cmd.hasErrors()) {
-                respond cmd, view: "edit"
-            }
-            def username = cmd.username
-            User user = User.findByUsername(username)
-            // TODO: error handling code here
-            user.version = cmd.version
-            user.email = cmd.email
-            user.password = cmd.password
-            user.firstName = cmd.firstName
-            user.lastName = cmd.lastName
-            user.org = cmd.org
-            user.orgAddress = cmd.orgAddress
-            user.orgCity = cmd.orgCity
-            user.orgState = cmd.orgState
-            user.orgZip = cmd.orgZip
-            // 3/9/2021 surrounded by transaction to avoid error
-            org.olr.admin.User.withTransaction {
-                user.save(flush: true)
-            }
-            redirect uri:"/"
-        }
+//        def edit() {
+//            User user = null
+//            if (springSecurityService.isLoggedIn()) {
+//                user = springSecurityService.getCurrentUser()
+//                def profileCommand = new ProfileCommand(
+//                    version: user.version,
+//                    email: user.email,
+//                    username: user.username,
+//                    password: user.password,
+//                    password2: user.password,
+//                    firstName: user.firstName,
+//                    lastName: user.lastName,
+//                    org: user.org,
+//                    orgAddress: user.orgAddress,
+//                    orgCity: user.orgCity,
+//                    orgState: user.orgState,
+//                    orgZip: user.orgZip,
+//                )
+//
+//                respond profileCommand, view: "edit"
+//            } else {
+//                redirect uri: '/'
+//            }
+//        }
+//        // new entry point
+//        def update(ProfileCommand cmd) {
+//println "RegisterController: update"
+//println "updating ${cmd.username}"
+//            if (cmd.hasErrors()) {
+//                respond cmd, view: "edit"
+//            }
+//            def username = cmd.username
+//            User user = User.findByUsername(username)
+//            // TODO: error handling code here
+//            user.version = cmd.version
+//            user.email = cmd.email
+//            user.password = cmd.password
+//            user.firstName = cmd.firstName
+//            user.lastName = cmd.lastName
+//            user.org = cmd.org
+//            user.orgAddress = cmd.orgAddress
+//            user.orgCity = cmd.orgCity
+//            user.orgState = cmd.orgState
+//            user.orgZip = cmd.orgZip
+//            // 3/9/2021 surrounded by transaction to avoid error
+//            org.olr.admin.User.withTransaction {
+//                user.save(flush: true)
+//            }
+//            redirect uri:"/"
+//        }
 
         protected void redirectVerifyRegistration(def rtn) {
             if (rtn?.flashmsg) {

@@ -36,10 +36,10 @@ class RegisterCommand implements CommandObject, grails.validation.Validateable {
 // OLR fields added
         firstName nullable:false, size: 1..40
         lastName nullable:false, size: 1..40
-        org  size: 3..40
-        orgAddress size: 5..40
-        orgCity size: 5..40
-        orgState size: 2..20
-        orgZip size: 5..5
+        org  blank: true, nullable:true, size: 3..40
+        orgAddress  blank: true, nullable:true, size: 5..40
+        orgCity  blank: true, nullable:true, size: 5..40
+        orgState  blank: true, nullable:true, size: 2..20
+        orgZip  blank: true, nullable:true, size: 5..5
     }
 }

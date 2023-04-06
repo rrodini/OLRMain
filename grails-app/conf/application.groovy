@@ -8,8 +8,11 @@ Logger log = LoggerFactory.getLogger(this.class.name)
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'org.olr.admin.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'org.olr.admin.UserRole'
 grails.plugin.springsecurity.authority.className = 'org.olr.admin.Role'
-grails.plugin.springsecurity.ui.password.minLen = 6
-grails.plugin.springsecurity.ui.password.maxLen = 32
+// password complexity
+grails.plugin.springsecurity.ui.password.minLength = 6
+grails.plugin.springsecurity.ui.password.maxLength = 32
+grails.plugin.springsecurity.ui.password.validationRegex = "^.*(?=.*\\d)(?=.*[a-zA-Z]).*\$"  // don't require special characters
+
 // remember me cookie
 rememberMe.cookieName = "OLR_remember_me"
 rememberMe.key = "OLR_Rocks"
@@ -23,15 +26,18 @@ grails.plugin.springsecurity.logout.postOnly=false
 grails.plugin.springsecurity.roleHierarchy = '''
   ROLE_ADMIN > ROLE_USER
 '''
-// logout following new user registration
-grails.plugin.springsecurity.ui.register.postRegisterUrl = '/logout'
-// no email validation during registration
+// registration settings
 grails.plugin.springsecurity.ui.register.requireEmailValidation = true
-// no email to reset (change) password
-grails.plugin.springsecurity.ui.register.requireForgotPassEmailValidation = false
-grails.plugin.springsecurity.ui.register.emailBody = ""
-grails.plugin.springsecurity.ui.register.emaiFrom = ""
-grails.plugin.springsecurity.ui.register.emailSubject = ""
+grails.plugin.springsecurity.ui.register.emailBody = "Welcome \${user.username} to Open Lightning Round.  To finish registration " + "<a href='\${url}'>click here</a>."
+grails.plugin.springsecurity.ui.register.emailFrom = "admin@openlightninground.com"
+grails.plugin.springsecurity.ui.register.emailSubject = "OLR registration"
+grails.plugin.springsecurity.ui.register.postRegisterUrl = '/logout'
+// forgot password settings
+grails.plugin.springsecurity.ui.forgotPassword.requireForgotPassEmailValidation = true
+grails.plugin.springsecurity.ui.forgotPassword.emailBody = "So \${user.username}, you forgot your OLR password? This happens to everyone!  Just " + "<a href='\${url}'>click here</a> to reset your password."
+grails.plugin.springsecurity.ui.forgotPassword.emailFrom = "admin@openlightninground.com"
+grails.plugin.springsecurity.ui.forgotPassword.emailSubject = "OLR forgotten password"
+grails.plugin.springsecurity.ui.forgotPassword.postRegisterUrl = '/'
 
 // default if staticRules which requires controller annotations
 //  changed to InterceptMap for "declarative" security
@@ -79,8 +85,8 @@ grails.plugin.springsecurity.interceptUrlMap = [
 	[pattern: '/endGame/**',     access: ['permitAll']],
 	[pattern: '/gameSummary/**', access: ['permitAll']],
 //  below requires package naming convention plus custom url mappings
-	[pattern: '/index_admin/**',access: ['ROLE_ADMIN']],
-	[pattern: '/admin/**',      access: ['ROLE_ADMIN']],
+	[pattern: '/index_admin/**', access: ['ROLE_ADMIN']],
+	[pattern: '/admin/**',       access: ['ROLE_ADMIN']],
 	[pattern: '/**/',            access: ['ROLE_USER']],
 ]
 // below is unaltered
@@ -90,7 +96,7 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**/css/**',      filters: 'none'],
 	[pattern: '/**/images/**',   filters: 'none'],
 	[pattern: '/**/favicon.ico', filters: 'none'],
-//	[pattern: '/logout/**',       filters: 'none'],
+//	[pattern: '/logout/**',      filters: 'none'],
 //	[pattern: '/logoff/**',      filters: 'none'],
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]

@@ -45,11 +45,11 @@ class User implements Serializable {
         lastLoginTime nullable:true
         firstName nullable:false, size: 1..40
         lastName nullable:false, size: 1..40
-        org  nullable: true, size: 3..40
-        orgAddress nullable: true, size: 5..40
-        orgCity nullable: true, size: 5..40
-        orgState nullable: true, size: 2..20
-        orgZip nullable: true, size: 5..5
+        org   blank: true, nullable: true, size: 3..40
+        orgAddress   blank: true, nullable: true, size: 5..40
+        orgCity   blank: true, nullable: true, size: 5..40
+        orgState   blank: true, nullable: true, size: 2..20
+        orgZip    blank: true, nullable: true, size: 5..5
     }
 
     static mapping = {
