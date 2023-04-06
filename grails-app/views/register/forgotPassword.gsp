@@ -11,9 +11,9 @@
 		</g:if>
 		<g:else>
 		<br/>
-		<div style="margin-left: 10px;"><g:message code='spring.security.ui.forgotPassword.description'/></div>
+		<div style="margin: 10px;"><g:message code='spring.security.ui.forgotPassword.description'/></div>
 		<table>
-			<s2ui:textFieldRow name='username' size='25' labelCodeDefault='Username'/>
+			<s2ui:textFieldRow name='username' size='20' labelCodeDefault='Username'/>
 		<%--
 		<s2ui:submitButton elementId='submit' messageCode='spring.security.ui.forgotPassword.submit'/>
  		--%>

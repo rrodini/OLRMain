@@ -53,7 +53,7 @@
 
     <div id="content" role="main">
         <section class="row colset-2-its">
-            <h1>OLR Proxy Administration</h1>
+            <h1>OLR Administration</h1>
             <div id="controllers" role="navigation">
                 <h2>Available Controllers:</h2>
                 <ul>

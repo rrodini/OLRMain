@@ -2,7 +2,19 @@
 <head>
 	<meta name="layout" content="${layoutRegister}"/>
 	<s2ui:title messageCode='spring.security.ui.resetPassword.title'/>
-</head>
+	<style>
+	table {
+		border-collapse: collapse;
+		table-layout: fixed;
+		width: 310px;
+	}
+	table td {
+		/* border: solid 1px #666; */
+		width: 110px;
+		word-wrap: break-word;
+	}
+	</style>
+	</head>
 <body>
 <s2ui:formContainer type='resetPassword' focus='password' width='475px'>
 	<s2ui:form beanName='resetPasswordCommand'>
@@ -11,8 +23,10 @@
 			<br/>
 			<h3>&nbsp;&nbsp;&nbsp;<g:message code='spring.security.ui.resetPassword.description'/></h3>
 			<table>
-				<s2ui:passwordFieldRow name='password' labelCodeDefault='Password'/>
-				<s2ui:passwordFieldRow name='password2' labelCodeDefault='Password (again)'/>
+				<!-- labelCodeDefault='Password' -->
+				<s2ui:passwordFieldRow name='password' size='20' />
+				<!--  labelCodeDefault='Password (again)' -->
+				<s2ui:passwordFieldRow name='password2' size='20'/>
 			<%--
 			<s2ui:submitButton elementId='submit' messageCode='spring.security.ui.resetPassword.submit'/>
 			--%>
