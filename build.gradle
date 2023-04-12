@@ -24,6 +24,7 @@ apply plugin:"org.grails.grails-gsp"
 
 repositories {
     maven { url "https://repo.grails.org/grails/core" }
+    mavenCentral()
 }
 
 configurations {
@@ -63,9 +64,10 @@ dependencies {
     implementation "org.grails.plugins:mail:3.0.0"
     // below taken from sample Grails4App
     profile "org.grails.profiles:web"
-//  json validation jars
-    implementation "org.leadpony.justify:justify:3.1.0"   // new 3.1.0 old 0.17.0
-    implementation "org.glassfish:jakarta.json:2.0.1"      // new 2.0.1 old 1.1.15
+//  json validation jars. Only found in Maven Central. That's why that repo is in the Grails list
+//  Attempt to upgrade both jar to recent versions failed due to lack of leadpony "joy" examples
+    implementation "org.leadpony.justify:justify:0.17.0"
+    implementation "org.glassfish:jakarta.json:1.1.5"
 //  end of json validation jars
     runtimeOnly "org.glassfish.web:el-impl:2.1.2-b03"
 //  postgres jdbc driver
